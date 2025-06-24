@@ -1,0 +1,11 @@
+{
+  "splash_title": "brewer motorsport",
+  "home_title": "Willkommen beim Motorsimulator",
+  "home_button": "brewer\n motorsport",
+  "language_choose": "Sprache wählen",
+  "languageList": {
+    "english": "Englisch",
+    "german": "Deutsch",
+    "spanish": "Spanisch"
+  }
+}

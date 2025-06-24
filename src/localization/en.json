@@ -1,0 +1,15 @@
+{
+  "splash_title": "brewer motorsport",
+  "home_title": "Welcome to the Engine Simulator",
+  "home_button": "brewer\n motorsport",
+  "language_choose": "Choose Language",
+  "languageList": {
+    "english": "English",
+    "german": "German",
+    "spanish": "Spanish"
+  },
+  "confirm": "Confirm",
+  "homeTwoTitle": "Explore engine\n options",
+  "homeTwoDes": "Use the steering wheel buttons\n to browse available engines.",
+  "toolTipTitle": "Tap the button"
+}

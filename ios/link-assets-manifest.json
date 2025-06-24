@@ -1,0 +1,25 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/audio/demo.mp3",
+      "sha1": "e493d393c751d2bfa8807af52d306552b73ecae4"
+    },
+    {
+      "path": "assets/audio/demofive.mp3",
+      "sha1": "d2b6bc00e6e9350badf5a927cf1b3cf9ef4b0ef5"
+    },
+    {
+      "path": "assets/audio/demofour.mp3",
+      "sha1": "346405b1795f392e0a3b41845471ac231eb3da2f"
+    },
+    {
+      "path": "assets/audio/demothree.mp3",
+      "sha1": "24ae84e30e11dc21c2b3d9bb93a3d1306bb73d52"
+    },
+    {
+      "path": "assets/audio/demotwo.mp3",
+      "sha1": "63c4b0b07ffb47f67544e4eaa861020743af9ead"
+    }
+  ]
+}
