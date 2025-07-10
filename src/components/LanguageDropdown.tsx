@@ -1,34 +1,50 @@
-import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet, FlatList} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import React, {useEffect, useState} from 'react';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {theme} from '../constants/theme';
 import {useTranslation} from 'react-i18next';
 import i18n from '../localization/i18n';
 import {useNavigation} from '@react-navigation/native';
-import { NavgationNames } from '../constants/NavgationNames';
+import {NavgationNames} from '../constants/NavgationNames';
+import {storage} from '../utils/storage';
 
 const LanguageDropdown = () => {
   const {t} = useTranslation();
-  const {navigate} = useNavigation();
+  const navigation = useNavigation();
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState('');
-  const LANGUAGES = {
-    [t('languageList.english')]: 'en',
-    [t('languageList.german')]: 'de',
-    [t('languageList.spanish')]: 'es',
+  const [selectedLanguage, setSelectedLanguage] = useState<string>('');
+
+  // Language codes and labels (translated)
+  const LANGUAGES: Record<string, string> = {
+    en: t('languageList.english'),
+    de: t('languageList.german'),
+    es: t('languageList.spanish'),
   };
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
-  const onSelect = (lang: string) => {
-    setSelectedLanguage(lang);
+  const onSelect = (langCode: string) => {
+    setSelectedLanguage(langCode); // e.g. 'en'
     setIsOpen(false);
   };
 
-  const onCOnfirm = () => {
-    i18n.changeLanguage(LANGUAGES[selectedLanguage]);
-    navigate(NavgationNames.homeTwo)
+  const onConfirm = () => {
+    if (!selectedLanguage) return;
+    i18n.changeLanguage(selectedLanguage);
+    storage.set('lang', selectedLanguage);
+    navigation.replace(NavgationNames.homeTwo);
   };
+
+  const handleLanguageInit = async () => {
+    const storedLang = storage.getString('lang');
+    if (storedLang) {
+      await i18n.changeLanguage(storedLang);
+      setSelectedLanguage(storedLang);
+    }
+  };
+
+  useEffect(() => {
+    handleLanguageInit();
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -39,12 +55,14 @@ const LanguageDropdown = () => {
         style={styles.button}>
         <Text style={styles.buttonText}>
           {selectedLanguage
-            ? selectedLanguage
+            ? LANGUAGES[selectedLanguage]
             : `${t('language_choose')} ${isOpen ? '▲' : '▼'}`}
         </Text>
       </TouchableOpacity>
+
+      {/* Confirm button */}
       {selectedLanguage && !isOpen && (
-        <Text style={styles.confirmButtonStyle} onPress={onCOnfirm}>
+        <Text style={styles.confirmButtonStyle} onPress={onConfirm}>
           {t('confirm')}
         </Text>
       )}
@@ -52,14 +70,14 @@ const LanguageDropdown = () => {
       {/* Dropdown list */}
       {isOpen && (
         <View style={styles.dropdown}>
-          {Object.keys(LANGUAGES).map(lang => (
-            <TouchableOpacity key={lang} onPress={() => onSelect(lang)}>
+          {Object.keys(LANGUAGES).map(langCode => (
+            <TouchableOpacity key={langCode} onPress={() => onSelect(langCode)}>
               <Text
                 style={[
                   styles.itemText,
-                  lang === selectedLanguage && styles.activeText,
+                  langCode === selectedLanguage && styles.activeText,
                 ]}>
-                {lang}
+                {LANGUAGES[langCode]}
               </Text>
             </TouchableOpacity>
           ))}

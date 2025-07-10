@@ -1,11 +1,129 @@
 {
-  "splash_title": "brewer motorsport",
+  "splash_title": "Brewer Motorsport",
   "home_title": "Willkommen beim Motorsimulator",
-  "home_button": "brewer\n motorsport",
+  "home_button": "Brewer\n Motorsport",
   "language_choose": "Sprache wählen",
   "languageList": {
     "english": "Englisch",
     "german": "Deutsch",
     "spanish": "Spanisch"
-  }
+  },
+  "confirm": "Bestätigen",
+  "homeTwoTitle": "Erkunde Motoren-\noptionen",
+  "homeTwoDes": "Benutze die Lenkradtasten,\n um verfügbare Motoren zu durchsuchen.",
+  "toolTipTitle": "Tippe auf den Knopf",
+  "close": "Schließen",
+  "shareTitle": "Ringtonedatei speichern",
+  "pathSubDes": "Pfad zu deinem Ton:",
+  "topSpeedTitle": "Geschätzte Höchstgeschwindigkeit",
+  "SpeedUnit": "KMH",
+  "yearRangeTitle": "Baujahr",
+  "chassisTitle": "Chassis",
+  "bhp": "PS",
+  "AndroidRingTone": "Erlebe es in deinem Klingelton",
+  "IosSaveFile": "Ton speichern",
+  "ringtone": {
+    "permission_redirect": "Weiterleitung zu den Einstellungen zur Erteilung der Berechtigung",
+    "copy_failed": "Klingeltondatei konnte nicht kopiert werden.",
+    "multiple_sims_title": "Mehrere SIMs erkannt",
+    "multiple_sims_message": "Aufgrund von Android-Beschränkungen kann der Klingelton nur global festgelegt werden. Du kannst SIM-spezifische Klingeltöne manuell in den Systemeinstellungen festlegen.",
+    "set_globally": "Global festlegen",
+    "open_settings": "Einstellungen öffnen",
+    "set_globally_success": "Klingelton global festgelegt!",
+    "set_success": "Klingelton festgelegt!",
+    "set_failed": "Klingelton konnte nicht festgelegt werden."
+  },
+  "cancel": "Abbrechen",
+  "moterListText": [
+    {
+      "title": "BMW Motorsport",
+      "model": "P66/1/2",
+      "engine": "BMW P66/1 4,0 Liter, Trockensumpf, V8 (4000cc)",
+      "topSpeed": "187",
+      "yearRange": "2012-2018",
+      "bhp": "500+",
+      "chassis": "BMW Motorsport M3 & M4 DTM"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "P75B59",
+      "engine": "BMW P75 Trockensumpf, 5,9 Liter, V12 (5990cc)",
+      "topSpeed": "217+",
+      "yearRange": "1999-2000",
+      "bhp": "580",
+      "chassis": "BMW Motorsport V12 LMR"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "S42B20",
+      "engine": "BMW S42B20, Trockensumpf, 2,0L, 4-Zylinder Reihenmotor (1998cc)",
+      "topSpeed": "285+",
+      "yearRange": "1994-1998",
+      "bhp": "140",
+      "chassis": "BMW E36/4 318is & 320is Gruppe A, STC"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "S50B32",
+      "engine": "BMW S50B32, Trockensumpf, 3,2 L, Reihensechszylinder (3201cc)",
+      "topSpeed": "175",
+      "yearRange": "1996-1999",
+      "bhp": "425",
+      "chassis": "BMW E36 & E36/4 M3 Gruppe A, GTR, GT, IMSA"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "P54B32",
+      "engine": "BMW P54B32 3,2 Liter Reihensechszylinder (3246cc)",
+      "topSpeed": "177",
+      "yearRange": "2001-2006",
+      "bhp": "435",
+      "chassis": "BMW E46 M3 GT/GTR/VLN & E86 Z4 VLN"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "P60B40",
+      "engine": "BMW P60B40 Trockensumpf, 4,0 Liter V8 (3997cc)",
+      "topSpeed": "174",
+      "yearRange": "2001-2005",
+      "bhp": "450",
+      "chassis": "BMW E46 M3 GTR"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "P65B40-44",
+      "engine": "BMW P65B44 Trockensumpf, 4,4 Liter V8 (4400cc)",
+      "topSpeed": "500+",
+      "yearRange": "2009-2011",
+      "bhp": "633",
+      "chassis": "BMW E92 M3 GT2 & BMW E89 Z4 GT3"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "P48R20",
+      "engine": "BMW P48R20 Trockensumpf, Turbo, 1,9 Liter, 4-Zylinder (1999cc)",
+      "topSpeed": "300",
+      "yearRange": "2019-2020",
+      "bhp": "630+",
+      "chassis": "BMW M4 DTM Klasse 1 Prototyp"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "P80",
+      "engine": "BMW P80 Trockensumpf, 2,9 Liter, V12 (2998cc)",
+      "topSpeed": "233+",
+      "yearRange": "2001-2005",
+      "bhp": "880+",
+      "chassis": "BMW Motorsport Williams F1 FW23"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "S70/3",
+      "engine": "BMW S70/3-GTR Trockensumpf, 6,0 Liter, V12 (6064cc)",
+      "topSpeed": "230",
+      "yearRange": "1996-1997",
+      "bhp": "615",
+      "chassis": "BMW-angetriebener McLaren F1 GTR & GTR Longtail"
+    }
+  ]
 }

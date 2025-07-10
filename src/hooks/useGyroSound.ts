@@ -1,14 +1,14 @@
-import { useEffect, useRef, useState } from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {
   accelerometer,
   setUpdateIntervalForType,
   SensorTypes,
 } from 'react-native-sensors';
-import { Subscription } from 'rxjs'; // ✅ Correct type
+import {Subscription} from 'rxjs'; // ✅ Correct type
 import Sound from 'react-native-sound';
 
 const SAMPLE_INTERVAL_MS = 50;
-const BASE_VOLUME = 0.05;
+const BASE_VOLUME = 0.3;
 const MAX_VOLUME = 1.0;
 
 export const useGyroSound = (SOUND_FILE: string) => {
@@ -19,23 +19,30 @@ export const useGyroSound = (SOUND_FILE: string) => {
   const initialY = useRef<number | null>(null);
   const initialZ = useRef<number | null>(null);
 
-  const handleAccelerometer = ({ y, z }: { y: number; z: number }) => {
-    if (initialY.current === null || initialZ.current === null) {
-      initialY.current = y;
-      initialZ.current = z;
-      return;
-    }
+  const handleAccelerometer = ({x, z}: {x: number; z: number}) => {
+    // Calculate tilt angle using X-axis (landscape mode)
+    const tiltRadians = Math.atan2(x, z);
+    const tiltDegrees = Math.abs(tiltRadians * (180 / Math.PI)); // Always positive
 
-    const deltaY = initialY.current - y;
-    const deltaZ = initialZ.current - z;
+    // Clamp max to 45 degrees
+    const clamped = Math.min(tiltDegrees, 40);
+    const normalized = clamped / 40;
 
-    // Combine influence (you can apply different weights here)
-    const deviation = -(deltaY + deltaZ);
+    // 🔁 Reverse the mapping (0° → high volume, 45° → low volume)
+    const reversed = 1 - normalized;
 
-    const scaledVolume = BASE_VOLUME + deviation; // Scaling factor tweakable
-    const volume = Math.min(Math.max(scaledVolume, BASE_VOLUME), MAX_VOLUME);
+    // Scale to volume range
+    const volume = BASE_VOLUME + (MAX_VOLUME - BASE_VOLUME) * reversed;
 
+    // Apply to sound
     soundRef.current?.setVolume(volume);
+
+    // Debug log
+    console.log(
+      `Tilt: ${tiltDegrees.toFixed(1)}° → Normalized: ${normalized.toFixed(
+        2,
+      )} → Reversed: ${reversed.toFixed(2)} → Volume: ${volume.toFixed(2)}`,
+    );
   };
 
   const cleanupResources = () => {
@@ -52,13 +59,15 @@ export const useGyroSound = (SOUND_FILE: string) => {
   };
 
   const startSound = () => {
+    console.log('isPlaying------',isPlaying, soundRef.current)
     if (isPlaying || soundRef.current) return;
-
-    const sound = new Sound(SOUND_FILE, Sound.MAIN_BUNDLE, (error) => {
+console.log('isPlaying-----2-',SOUND_FILE, Sound.MAIN_BUNDLE)
+    const sound = new Sound(SOUND_FILE, Sound.MAIN_BUNDLE, error => {
       if (error) {
         console.error('Failed to load sound:', error);
         return;
       }
+console.log('isPlaying-----3-',)
 
       sound.setVolume(BASE_VOLUME);
       sound.setNumberOfLoops(-1);

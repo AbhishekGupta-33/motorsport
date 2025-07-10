@@ -6,7 +6,8 @@ import { StatusBar } from 'react-native';
 export default function NavigationHead() {
   return (
     <NavigationContainer>
-       <StatusBar translucent={true} backgroundColor={'transparent'} />
+       {/* <StatusBar translucent={true} backgroundColor={'transparent'} /> */}
+        <StatusBar hidden />
       <Stacks />
     </NavigationContainer>
   );

@@ -24,7 +24,9 @@ const ImageBackgroundImage: React.FC<ImageBackgroundImageProps> = ({
         style={[styles.imageContainer, imageStyle]}
         resizeMode={resizeMode}
       />
+      <View style={{position: 'absolute'}}>
       {children}
+      </View>
     </View>
   );
 };

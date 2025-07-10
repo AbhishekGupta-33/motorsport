@@ -1,11 +1,129 @@
 {
-  "splash_title": "brewer motorsport",
-  "home_title": "Bienvenido al simulador de motor",
-  "home_button": "brewer\n motorsport",
-  "language_choose": "Elegir idioma",
+  "splash_title": "Brewer Automovilismo",
+  "home_title": "Bienvenido al Simulador de Motores",
+  "home_button": "Brewer\n Automovilismo",
+  "language_choose": "Elige el idioma",
   "languageList": {
     "english": "Inglés",
     "german": "Alemán",
     "spanish": "Español"
-  }
+  },
+  "confirm": "Confirmar",
+  "homeTwoTitle": "Explora opciones\nde motor",
+  "homeTwoDes": "Usa los botones del volante\npara explorar los motores disponibles.",
+  "toolTipTitle": "Toca el botón",
+  "close": "Cerrar",
+  "shareTitle": "Guardar archivo de tono",
+  "pathSubDes": "Ruta de tu tono:",
+  "topSpeedTitle": "Velocidad máxima estimada",
+  "SpeedUnit": "KMH",
+  "yearRangeTitle": "Año",
+  "chassisTitle": "Chasis",
+  "bhp": "CV",
+  "AndroidRingTone": "Disfruta en tu tono de llamada",
+  "IosSaveFile": "Guardar el sonido",
+  "ringtone": {
+    "permission_redirect": "Redirigiendo a configuración para otorgar permisos",
+    "copy_failed": "No se pudo copiar el archivo de tono.",
+    "multiple_sims_title": "Se detectaron múltiples SIMs",
+    "multiple_sims_message": "Debido a las limitaciones de Android, el tono solo puede establecerse globalmente. Puedes configurarlo por SIM manualmente en ajustes.",
+    "set_globally": "Establecer globalmente",
+    "open_settings": "Abrir configuración",
+    "set_globally_success": "¡Tono establecido globalmente!",
+    "set_success": "¡Tono establecido!",
+    "set_failed": "No se pudo establecer el tono."
+  },
+  "cancel": "Cancelar",
+  "moterListText": [
+    {
+      "title": "BMW Motorsport",
+      "model": "P66/1/2",
+      "engine": "BMW P66/1 4.0 litros, cárter seco, V8 (4000cc)",
+      "topSpeed": "187",
+      "yearRange": "2012-2018",
+      "bhp": "500+",
+      "chassis": "BMW Motorsport M3 y M4 DTM"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "P75B59",
+      "engine": "BMW P75 cárter seco, 5.9 litros, V12 (5990cc)",
+      "topSpeed": "217+",
+      "yearRange": "1999-2000",
+      "bhp": "580",
+      "chassis": "BMW Motorsport V12 LMR"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "S42B20",
+      "engine": "BMW S42B20, cárter seco, 2.0L, 4 cilindros en línea (1998cc)",
+      "topSpeed": "285+",
+      "yearRange": "1994-1998",
+      "bhp": "140",
+      "chassis": "BMW E36/4 318is y 320is Grupo A, STC"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "S50B32",
+      "engine": "BMW S50B32, cárter seco, 3.2 L, seis en línea (3201cc)",
+      "topSpeed": "175",
+      "yearRange": "1996-1999",
+      "bhp": "425",
+      "chassis": "BMW E36 y E36/4 M3 Grupo A, GTR, GT, IMSA"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "P54B32",
+      "engine": "BMW P54B32 3.2 litros, seis en línea (3246cc)",
+      "topSpeed": "177",
+      "yearRange": "2001-2006",
+      "bhp": "435",
+      "chassis": "BMW E46 M3 GT/GTR/VLN y E86 Z4 VLN"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "P60B40",
+      "engine": "BMW P60B40 cárter seco, 4.0 litros, V8 (3997cc)",
+      "topSpeed": "174",
+      "yearRange": "2001-2005",
+      "bhp": "450",
+      "chassis": "BMW E46 M3 GTR"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "P65B40-44",
+      "engine": "BMW P65B44 cárter seco, 4.4 litros, V8 (4400cc)",
+      "topSpeed": "500+",
+      "yearRange": "2009-2011",
+      "bhp": "633",
+      "chassis": "BMW E92 M3 GT2 y BMW E89 Z4 GT3"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "P48R20",
+      "engine": "BMW P48R20 cárter seco, turbo, 1.9 litros, 4 cilindros (1999cc)",
+      "topSpeed": "300",
+      "yearRange": "2019-2020",
+      "bhp": "630+",
+      "chassis": "BMW M4 DTM Clase 1 Prototipo"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "P80",
+      "engine": "BMW P80 cárter seco, 2.9 litros, V12 (2998cc)",
+      "topSpeed": "233+",
+      "yearRange": "2001-2005",
+      "bhp": "880+",
+      "chassis": "BMW Motorsport Williams F1 FW23"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "S70/3",
+      "engine": "BMW S70/3-GTR cárter seco, 6.0 litros, V12 (6064cc)",
+      "topSpeed": "230",
+      "yearRange": "1996-1997",
+      "bhp": "615",
+      "chassis": "BMW Potenciado McLaren F1 GTR y GTR Longtail"
+    }
+  ]
 }

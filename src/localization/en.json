@@ -11,5 +11,119 @@
   "confirm": "Confirm",
   "homeTwoTitle": "Explore engine\n options",
   "homeTwoDes": "Use the steering wheel buttons\n to browse available engines.",
-  "toolTipTitle": "Tap the button"
+  "toolTipTitle": "Tap the button",
+  "close": "Close",
+  "shareTitle": "Save Ringtune File",
+  "pathSubDes": "Path for your Tune:",
+  "topSpeedTitle": "Estimated Top Speed",
+  "SpeedUnit": "MPH",
+  "yearRangeTitle": "Year Range",
+  "chassisTitle": "Chassis",
+  "bhp": "BHP",
+  "AndroidRingTone": "Experience in your RingTone",
+  "IosSaveFile": "Save the Sound",
+  "ringtone": {
+    "permission_redirect": "Redirecting to settings to grant permission",
+    "copy_failed": "Failed to copy ringtone file.",
+    "multiple_sims_title": "Multiple SIMs Detected",
+    "multiple_sims_message": "Due to Android limitations, ringtone can only be set globally. You may set SIM-specific ringtones manually via system settings.",
+    "set_globally": "Set Globally",
+    "open_settings": "Open Settings",
+    "set_globally_success": "Ringtone set globally!",
+    "set_success": "Ringtone set!",
+    "set_failed": "Failed to set ringtone."
+  },
+  "cancel": "Cancel",
+  "moterListText": [
+    {
+      "title": "BMW Mototsport",
+      "model": "P66/1/2",
+      "engine": "BMW P66/1 4.0 Liter, Dry sump, V8 (4000cc)",
+      "topSpeed": "187",
+      "yearRange": "2012-2018",
+      "bhp": "500+",
+      "chassis": "BMW Motorsport M3 & M4 DTM"
+    },
+    {
+      "title": "BMW Mototsport",
+      "model": "P75B59",
+      "engine": "BMW P75 Dry sump, 5.9 Liter, V12 (5990cc)",
+      "topSpeed": "217+",
+      "yearRange": "1999-2000",
+      "bhp": "580",
+      "chassis": "BMW Motorsport V12 LMR"
+    },
+    {
+      "title": "BMW Mototsport",
+      "model": "S42B20",
+      "engine": "BMW S42B20, dry sump, 2.0L, 4-cyl. in-line (1998cc)",
+      "topSpeed": "285+",
+      "yearRange": "1994-1998",
+      "bhp": "140",
+      "chassis": "BMW E36/4 318is & 320is Group A, STC"
+    },
+    {
+      "title": "BMW Mototsport",
+      "model": "S50B32",
+      "engine": "BMW S50B32, Dry Sump, 3.2 L, In-line six (3201cc)",
+      "topSpeed": "175 ",
+      "yearRange": "1996-1999",
+      "bhp": "425",
+      "chassis": "BMW E36 & E36/4 M3 Group A, GTR, GT, IMSA"
+    },
+    {
+      "title": "BMW Mototsport",
+      "model": "P54B32",
+      "engine": "BMW P54B32 3.2 Liter In-Line Six (3246cc)",
+      "topSpeed": "177",
+      "yearRange": "2001-2006",
+      "bhp": "435",
+      "chassis": "BMW E46 M3 GT/GTR/VLN & E86 Z4 VLN"
+    },
+    {
+      "title": "BMW Mototsport",
+      "model": "P60B40",
+      "engine": "BMW P60B40 dry sump, 4.0-liter V8 (3997cc)",
+      "topSpeed": "174",
+      "yearRange": "2001-2005",
+      "bhp": "450",
+      "chassis": "BMW E46 M3 GTR"
+    },
+    {
+      "title": "BMW Mototsport",
+      "model": "P65B40-44",
+      "engine": "BMW P65B44 Dry Sump, 4.4 Liter V8 (4400cc)",
+      "topSpeed": "500+",
+      "yearRange": "2009-2011",
+      "bhp": "633",
+      "chassis": "BMW E92 M3 GT2 & BMW E89 Z4 GT3"
+    },
+    {
+      "title": "BMW Mototsport",
+      "model": "P48R20",
+      "engine": "BMW P48R20 Dry Sump, Turbo, 1.9 Liter, 4 Cylinder (1999cc)",
+      "topSpeed": "300",
+      "yearRange": "2019-2020",
+      "bhp": "630+",
+      "chassis": "BMW M4 DTM Class 1 Prototype"
+    },
+    {
+      "title": "BMW Mototsport",
+      "model": "P80",
+      "engine": "BMW P80 Dry sump, 2.9 Liter, V12 (2998cc)",
+      "topSpeed": "233+",
+      "yearRange": "2001-2005",
+      "bhp": "880+",
+      "chassis": "BMW Motorsport Williams F1 FW23"
+    },
+    {
+      "title": "BMW Mototsport",
+      "model": "S70/3",
+      "engine": "BMW S70/3-GTR Dry sump, 6.0 Liter, V12 (6064cc)",
+      "topSpeed": "230",
+      "yearRange": "1996-1997",
+      "bhp": "615",
+      "chassis": "BMW Powered McLaren F1 GTR & GTR Longtail"
+    }
+  ]
 }

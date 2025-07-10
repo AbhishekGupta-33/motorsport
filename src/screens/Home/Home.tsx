@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Text, StyleSheet} from 'react-native';
+import {Text, StyleSheet, StatusBar} from 'react-native';
 import {APP_IMAGE} from '../../../assets/images';
 import {useTranslation} from 'react-i18next';
 import LanguageDropdown from '../../components/LanguageDropdown';
@@ -17,7 +17,8 @@ const Home = () => {
   }, []);
 
   return (
-    <StackedFastImageLayout
+    <>
+     <StackedFastImageLayout
       backgroundImage={APP_IMAGE.HomeBG}
       middleImage={APP_IMAGE.LinearGradiant}
       topImage={APP_IMAGE.FullController}
@@ -29,6 +30,8 @@ const Home = () => {
         <LanguageDropdown />
       )}
     </StackedFastImageLayout>
+    </>
+   
   );
 };
 
