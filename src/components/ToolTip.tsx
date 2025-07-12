@@ -34,8 +34,8 @@ const Tooltip: React.FC<TooltipProps> = ({viewStyle}) => {
             onLayout={({nativeEvent}) => {
               setTextWidth(nativeEvent.layout.width);
             }}
-            style={[styles.labelText, {width: testWidth > 79 ? 80 : testWidth}]}
-            numberOfLines={testWidth > 79 ? 2 : 1}>
+            style={[styles.labelText, {width: testWidth > '1%' ? '1%' : testWidth}]}
+            numberOfLines={testWidth > '1%' ? 2 : 1}>
             {t('toolTipTitle')}
           </Text>
         </LinearGradient>

@@ -16,6 +16,7 @@ import {useNavigation} from '@react-navigation/native';
 import {theme} from '../constants/theme';
 import {storage} from '../utils/storage';
 import {ControllerButtonId, NavgationNames} from '../constants/NavgationNames';
+import { isTablet } from 'react-native-device-info';
 
 const Controller = ({
   onButtonPress = (buttonId: string) => {},
@@ -42,59 +43,59 @@ const Controller = ({
     },
     {
       id: ControllerButtonId.LeftWhite,
-      left: '33.5%',
-      top: '49%',
-      width: screenHeight * 0.11,
-      height: screenHeight * 0.11,
+      left: isTablet() ? '34%' : '33.5%',
+      top:  '49%',
+      width: screenHeight * 0.1,
+      height: screenHeight * 0.1,
     },
     {
       id: ControllerButtonId.LeftBlue,
-      left: '33%',
-      top: '61%',
-      width: screenHeight * 0.11,
-      height: screenHeight * 0.11,
+      left: isTablet() ? '34%' : '33%',
+      top: isTablet() ? '60%' : '61%',
+      width: screenHeight * 0.1,
+      height: screenHeight * 0.1,
     },
     {
       id: ControllerButtonId.LeftYellow,
-      left: '33%',
-      top: '73%',
-      width: screenHeight * 0.11,
-      height: screenHeight * 0.11,
+      left: isTablet() ? '34%' : '33%',
+      top: isTablet() ? '71.5%' : '73%',
+      width: screenHeight * 0.1,
+      height: screenHeight * 0.1,
     },
     {
       id: ControllerButtonId.LeftBlack,
-      left: '33%',
-      top: '85%',
-      width: screenHeight * 0.11,
-      height: screenHeight * 0.11,
+      left: isTablet() ? '33.5%' : '33%',
+      top: isTablet() ? '83%' :'85%',
+      width: screenHeight * 0.1,
+      height: screenHeight * 0.1,
     },
     {
       id: ControllerButtonId.RightWhite,
       left: '61%',
-      top: '50%',
-      width: screenHeight * 0.11,
-      height: screenHeight * 0.11,
+      top: isTablet() ? '49%' : '50%',
+      width: screenHeight * 0.1,
+      height: screenHeight * 0.1,
     },
     {
       id: ControllerButtonId.RightYellow,
       left: '61%',
-      top: '62%',
-      width: screenHeight * 0.11,
-      height: screenHeight * 0.11,
+      top: isTablet() ? '61%' :'62%',
+      width: screenHeight * 0.1,
+      height: screenHeight * 0.1,
     },
     {
       id: ControllerButtonId.RightRed,
       left: '61.5%',
-      top: '73.5%',
-      width: screenHeight * 0.111,
-      height: screenHeight * 0.111,
+      top: isTablet() ? '72%' :'73.5%',
+      width: screenHeight * 0.1,
+      height: screenHeight * 0.1,
     },
     {
       id: ControllerButtonId.RightGreen,
       left: '61.5%',
-      top: '85%',
-      width: screenHeight * 0.11,
-      height: screenHeight * 0.11,
+      top: isTablet() ? '83%' : '85%',
+      width: screenHeight * 0.1,
+      height: screenHeight * 0.1,
     },
     {
       id: ControllerButtonId.RightPaddle,
@@ -228,8 +229,8 @@ const styles = StyleSheet.create({
     borderColor: theme.color.borderLightGray,
     padding: theme.spacing.sm,
     alignSelf: 'flex-end',
-    right: '12%',
-    top: '5%',
+    right: isTablet() ? '20%' : '12%',
+    top: isTablet() ? '8%' : '5%',
   },
   title: {
     fontSize: 12,
@@ -245,11 +246,11 @@ const styles = StyleSheet.create({
   },
   tollTipStyle: {
     alignSelf: 'flex-end',
-    right: '12%',
-    top: '6%',
+    right: isTablet() ? '19%' : '12%',
+    top: isTablet() ? '15%' : '6%',
   },
   centerView: {
-    top: '20%',
+    top: isTablet() ? '28%' : '20%',
   },
   steeringWheelImage: {
     width: '100%',
@@ -265,7 +266,7 @@ const styles = StyleSheet.create({
   button: {
     position: 'absolute',
     backgroundColor: 'rgba(255, 255, 255, 0)', // Semi-transparent for development
-    borderRadius: 50,
+    borderRadius: '100%',
     borderWidth: 2,
     borderColor: 'rgba(255, 255, 255, 0)',
     justifyContent: 'center',
