@@ -17,6 +17,7 @@ import {theme} from '../constants/theme';
 import {storage} from '../utils/storage';
 import {ControllerButtonId, NavgationNames} from '../constants/NavgationNames';
 import { isTablet } from 'react-native-device-info';
+import AppText from './AppText';
 
 const Controller = ({
   onButtonPress = (buttonId: string) => {},
@@ -158,14 +159,13 @@ const Controller = ({
   return (
     <View style={[styles.container, containerStyle]}>
       <TouchableOpacity style={styles.topRightView} onPress={handleLangugae}>
-        <Text style={styles.description}>{getLanguage()} ▼</Text>
+        <AppText size={'xs'} style={styles.language}>{getLanguage()} ▼</AppText>
       </TouchableOpacity>
-      {showToolTip && (
+      
         <View style={styles.centerView}>
-          <Text style={styles.title}>{t('homeTwoTitle').toUpperCase()}</Text>
-          <Text style={styles.description}>{t('homeTwoDes')}</Text>
+          <AppText size={'md'} style={styles.title}>{t('homeTwoTitle').toUpperCase()}</AppText>
+          <AppText size={'xs'} style={styles.description}>{t('homeTwoDes')}</AppText>
         </View>
-      )}
 
       {showToolTip && <Tooltip viewStyle={styles.tollTipStyle} />}
 
@@ -233,13 +233,16 @@ const styles = StyleSheet.create({
     top: isTablet() ? '8%' : '5%',
   },
   title: {
-    fontSize: 12,
-    color: 'white',
-    fontWeight: '400',
+    color:theme.color.white,
+    fontWeight: 'bold',
     textAlign: 'center',
   },
   description: {
-    fontSize: 10,
+    fontWeight: '400',
+    color: theme.color.borderLightGray,
+    textAlign: 'center',
+  },
+  language: {
     fontWeight: '400',
     color: theme.color.white,
     textAlign: 'center',
@@ -250,7 +253,7 @@ const styles = StyleSheet.create({
     top: isTablet() ? '15%' : '6%',
   },
   centerView: {
-    top: isTablet() ? '28%' : '20%',
+    top: isTablet() ? '25%' : '16%',
   },
   steeringWheelImage: {
     width: '100%',

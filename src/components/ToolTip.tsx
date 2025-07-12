@@ -10,6 +10,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import {theme} from '../constants/theme';
 import {useTranslation} from 'react-i18next';
+import AppText from './AppText';
 
 interface TooltipProps {
   viewStyle?: ViewStyle;
@@ -30,14 +31,15 @@ const Tooltip: React.FC<TooltipProps> = ({viewStyle}) => {
           start={{x: 0, y: 0}}
           end={{x: 1, y: 0}}
           style={styles.labelBox}>
-          <Text
+          <AppText
             onLayout={({nativeEvent}) => {
               setTextWidth(nativeEvent.layout.width);
             }}
+            size={'sm'}
             style={[styles.labelText, {width: testWidth > '1%' ? '1%' : testWidth}]}
             numberOfLines={testWidth > '1%' ? 2 : 1}>
             {t('toolTipTitle')}
-          </Text>
+          </AppText>
         </LinearGradient>
     </View>
   );
@@ -67,7 +69,6 @@ const styles = StyleSheet.create({
   },
   labelText: {
     color: 'white',
-    fontSize: 12,
     fontWeight: '400',
   },
   pressable:{

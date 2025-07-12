@@ -1,13 +1,8 @@
-import React, { useEffect, useRef, useCallback } from 'react';
-import {
-  Text,
-  StyleSheet,
-  View,
-  Dimensions,
-} from 'react-native';
-import { useTranslation } from 'react-i18next';
-import { useNavigation } from '@react-navigation/native';
-import { NavgationNames } from '../../constants/NavgationNames';
+import React, {useEffect, useRef, useCallback} from 'react';
+import {Text, StyleSheet, View, Dimensions} from 'react-native';
+import {useTranslation} from 'react-i18next';
+import {useNavigation} from '@react-navigation/native';
+import {NavgationNames} from '../../constants/NavgationNames';
 
 import AppBackground from '../../components/SplashBackground';
 import ImageBackgroundImage from '../../components/ImageBackgroundImage';
@@ -19,35 +14,41 @@ import Animated, {
   Easing,
 } from 'react-native-reanimated';
 
-import { APP_IMAGE } from '../../../assets/images';
-import { storage } from '../../utils/storage';
+import {APP_IMAGE} from '../../../assets/images';
+import {storage} from '../../utils/storage';
+import AppText from '../../components/AppText';
+import {theme} from '../../constants/theme';
 
-const { height, width } = Dimensions.get('window');
+const {height, width} = Dimensions.get('window');
 const AnimatedFastImage = Animated.createAnimatedComponent(FastImage);
 
 const SplashScreen = () => {
-  const { t } = useTranslation();
+  const {t} = useTranslation();
   const navigation = useNavigation();
   const scale = useSharedValue(0.1);
 
   const animate = useCallback(() => {
     scale.value = withTiming(1.5, {
-      duration: 500,
+      duration: 1000,
       easing: Easing.out(Easing.linear),
     });
 
     setTimeout(() => {
       const isLangSelected = storage.getString('lang');
-           navigation.replace(isLangSelected ? NavgationNames.homeTwo :  NavgationNames.home);
-    }, 900);
+      navigation.replace(
+        isLangSelected ? NavgationNames.homeTwo : NavgationNames.home,
+      );
+    }, 1200);
   }, []);
 
   useEffect(() => {
-    animate();
-  }, [animate]);
+    setTimeout(() => {
+      animate();
+    }, 300);
+  }, []);
 
   const animatedStyle = useAnimatedStyle(() => ({
-    transform: [{ scale: scale.value }],
+    transform: [{scale: scale.value}],
   }));
 
   return (
@@ -60,7 +61,9 @@ const SplashScreen = () => {
           source={APP_IMAGE.RectangleBlur}
           imageStyle={styles.blurImage}
           style={styles.centeredContent}>
-          <Text style={styles.title}>{t('splash_title').toUpperCase()}</Text>
+          <AppText size={'xs'} style={styles.title}>
+            {t('splash_title').toUpperCase()}
+          </AppText>
         </ImageBackgroundImage>
       </AppBackground>
 
@@ -76,8 +79,7 @@ const SplashScreen = () => {
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 12,
-    color: 'white',
+    color: theme.color.white,
     fontWeight: '400',
     textAlign: 'center',
   },

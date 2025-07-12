@@ -6,6 +6,7 @@ import i18n from '../localization/i18n';
 import {useNavigation} from '@react-navigation/native';
 import {NavgationNames} from '../constants/NavgationNames';
 import {storage} from '../utils/storage';
+import AppText from './AppText';
 
 const LanguageDropdown = () => {
   const {t} = useTranslation();
@@ -53,18 +54,18 @@ const LanguageDropdown = () => {
         onPress={toggleDropdown}
         activeOpacity={0.8}
         style={styles.button}>
-        <Text style={styles.buttonText}>
+        <AppText size={'sm'} style={styles.buttonText}>
           {selectedLanguage
             ? LANGUAGES[selectedLanguage]
             : `${t('language_choose')} ${isOpen ? '▲' : '▼'}`}
-        </Text>
+        </AppText>
       </TouchableOpacity>
 
       {/* Confirm button */}
       {selectedLanguage && !isOpen && (
-        <Text style={styles.confirmButtonStyle} onPress={onConfirm}>
+        <AppText size={'sm'} style={styles.confirmButtonStyle} onPress={onConfirm}>
           {t('confirm')}
-        </Text>
+        </AppText>
       )}
 
       {/* Dropdown list */}
@@ -72,13 +73,14 @@ const LanguageDropdown = () => {
         <View style={styles.dropdown}>
           {Object.keys(LANGUAGES).map(langCode => (
             <TouchableOpacity key={langCode} onPress={() => onSelect(langCode)}>
-              <Text
+              <AppText
+              size={'sm'}
                 style={[
                   styles.itemText,
                   langCode === selectedLanguage && styles.activeText,
                 ]}>
                 {LANGUAGES[langCode]}
-              </Text>
+              </AppText>
             </TouchableOpacity>
           ))}
         </View>
@@ -100,9 +102,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   buttonText: {
-    color: 'white',
+    color: theme.color.white,
     fontWeight: '400',
-    fontSize: 14,
   },
   dropdown: {
     marginTop: 6,
@@ -119,16 +120,14 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 16,
     color: theme.color.darkGrey,
-    fontSize: 16,
   },
   activeText: {
     color: 'purple',
     fontWeight: 'bold',
   },
   confirmButtonStyle: {
-    color: 'white',
+    color: theme.color.white,
     fontWeight: '400',
-    fontSize: 14,
     padding: theme.spacing.lg,
   },
 });

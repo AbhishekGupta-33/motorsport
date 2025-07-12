@@ -4,6 +4,7 @@ import {APP_IMAGE} from '../../../assets/images';
 import {useTranslation} from 'react-i18next';
 import LanguageDropdown from '../../components/LanguageDropdown';
 import StackedFastImageLayout from '../../components/StackedFastImageLayout';
+import AppText from '../../components/AppText';
 
 
 const Home = () => {
@@ -25,7 +26,7 @@ const Home = () => {
       containerStyle={{height: '100%'}}
       childrenStyle={styles.viewStyle}>
       {!intialLoad ? (
-        <Text style={styles.title}>{t('home_button').toUpperCase()}</Text>
+        <AppText size={'xs'} style={styles.title}>{t('home_button').toUpperCase()}</AppText>
       ) : (
         <LanguageDropdown />
       )}
@@ -37,7 +38,6 @@ const Home = () => {
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 12,
     color: 'white',
     fontWeight: '400',
     textAlign: 'center',

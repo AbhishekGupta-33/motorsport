@@ -20,7 +20,8 @@ import {useGyroSound} from '../../hooks/useGyroSound';
 import {downloadAndShareMP3} from '../../hooks/download';
 import {useTranslation} from 'react-i18next';
 import {useRingtoneSetter} from '../../hooks/useSetRingtone';
-import { isTablet } from 'react-native-device-info';
+import {isTablet} from 'react-native-device-info';
+import AppText from '../../components/AppText';
 
 const {height, width} = Dimensions.get('window');
 
@@ -117,29 +118,47 @@ const EngineDetail: React.FC<any> = props => {
       <View style={styles.topContainer}>
         {/* Close Button */}
         <TouchableOpacity style={styles.closeButton} onPress={onClosePress}>
-          <Text style={styles.closeText}>{t('close')} ✕</Text>
+          <AppText size={'md'} style={styles.closeText}>
+            {t('close')} ✕
+          </AppText>
         </TouchableOpacity>
         <View style={styles.viewCOntainerStyle}>
           {/* Left Panel - Engine Details */}
           <View style={styles.leftPanel}>
             <View style={styles.modelNameCntainer}>
-              <Text style={styles.engineText}>{motorsportData.engine}</Text>
+              <AppText size={'sm'} style={styles.engineText}>
+                {motorsportData.engine}
+              </AppText>
             </View>
             <View style={styles.speedContainer}>
-              <Text style={styles.speedtitle}>{t('topSpeedTitle')}</Text>
-              <Text style={styles.speedNumber}>{motorsportData.topSpeed}</Text>
-              <Text style={styles.speedUnit}>{t('SpeedUnit')}</Text>
+              <AppText size={'xs'} style={styles.speedtitle}>
+                {t('topSpeedTitle')}
+              </AppText>
+              <AppText size={'xxxl'} style={styles.speedNumber}>
+                {motorsportData.topSpeed}
+              </AppText>
+              <AppText size={'xs'} style={styles.speedUnit}>
+                {t('SpeedUnit')}
+              </AppText>
             </View>
             <View style={styles.yearView}>
-              <Text style={styles.yearRange}>{t('yearRangeTitle')}</Text>
-              <Text style={styles.yearText}>{motorsportData.yearRange}</Text>
+              <AppText size={'xs'} style={styles.yearRange}>
+                {t('yearRangeTitle')}
+              </AppText>
+              <AppText size={'md'} style={styles.yearText}>
+                {motorsportData.yearRange}
+              </AppText>
             </View>
           </View>
 
           {/* Center Panel - Title and Carousel */}
           <View style={styles.centerPanel}>
-            <Text style={styles.mainTitle}>{motorsportData.title}</Text>
-            <Text style={styles.modelText}>{motorsportData.model}</Text>
+            <AppText size={'xxl'} style={styles.mainTitle}>
+              {motorsportData.title}
+            </AppText>
+            <AppText size={'xl'} style={styles.modelText}>
+              {motorsportData.model}
+            </AppText>
 
             {/* Car Carousel */}
             {/* <View style={styles.carouselContainer}> */}
@@ -166,17 +185,25 @@ const EngineDetail: React.FC<any> = props => {
           {/* Right Panel - Chassis and BHP */}
           <View style={styles.rightPanel}>
             <View style={styles.chassisView}>
-              <Text style={styles.chassisLabel}>{t('chassisTitle')}</Text>
-              <Text style={styles.chassisText}>{motorsportData.chassis}</Text>
+              <AppText size={'xs'} style={styles.chassisLabel}>
+                {t('chassisTitle')}
+              </AppText>
+              <AppText size={'sm'} style={styles.chassisText}>
+                {motorsportData.chassis}
+              </AppText>
             </View>
 
             <View style={styles.bhpContainer}>
-              <Text style={styles.bhpNumber}>{motorsportData.bhp}</Text>
-              <Text style={styles.bhpUnit}>{t('bhp')}</Text>
+              <AppText size={'xxxl'} style={styles.bhpNumber}>
+                {motorsportData.bhp}
+              </AppText>
+              <AppText size={'sm'} style={styles.bhpUnit}>
+                {t('bhp')}
+              </AppText>
             </View>
 
             {/* Play Button */}
-            <View  style={styles.saveButtonView}>
+            <View style={styles.saveButtonView}>
               <Pressable style={styles.playButton} onPress={onPlay}>
                 <FastImage
                   source={APP_IMAGE.save}
@@ -184,11 +211,11 @@ const EngineDetail: React.FC<any> = props => {
                   tintColor={theme.color.white}
                 />
               </Pressable>
-              <Text style={styles.experienceText}>
+              <AppText size={'xs'} style={styles.experienceText}>
                 {Platform.OS === 'android'
                   ? t('AndroidRingTone')
                   : t('IosSaveFile')}
-              </Text>
+              </AppText>
             </View>
           </View>
         </View>
@@ -232,7 +259,6 @@ const styles = StyleSheet.create({
   },
   closeText: {
     color: theme.color.white,
-    fontSize: 16,
     fontWeight: '500',
   },
   leftPanel: {
@@ -241,57 +267,49 @@ const styles = StyleSheet.create({
     borderColor: theme.color.borderLightGray,
     justifyContent: 'space-evenly',
   },
-  modelNameCntainer:{
+  modelNameCntainer: {
     justifyContent: 'center',
     alignContent: 'center',
     borderBottomWidth: 1,
     borderColor: theme.color.borderLightGray,
-    flex:1,
+    flex: 1,
   },
   engineText: {
     color: theme.color.white,
-    fontSize: 14,
-    lineHeight: 16,
     textAlign: 'center',
     padding: theme.spacing.md,
   },
   speedContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-        flex:1,
+    flex: 1,
     padding: theme.spacing.md,
     borderBottomWidth: 1,
     borderColor: theme.color.borderLightGray,
   },
   speedtitle: {
     color: theme.color.borderLightGray,
-    fontSize: 12,
     textAlign: 'center',
   },
   speedNumber: {
     color: theme.color.white,
-    fontSize: 42,
     fontWeight: 'bold',
   },
   speedUnit: {
     color: theme.color.borderLightGray,
-    fontSize: 12,
   },
   yearView: {
     justifyContent: 'center',
     alignItems: 'center',
-    flex:1,
-
+    flex: 1,
   },
   yearRange: {
     color: theme.color.borderLightGray,
-    fontSize: 12,
     textAlign: 'center',
     marginBottom: 5,
   },
   yearText: {
     color: theme.color.white,
-    fontSize: 16,
     textAlign: 'center',
     fontWeight: 'bold',
   },
@@ -302,14 +320,12 @@ const styles = StyleSheet.create({
   },
   mainTitle: {
     color: theme.color.white,
-    fontSize: 32,
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 5,
   },
   modelText: {
     color: theme.color.white,
-    fontSize: 24,
     fontWeight: '600',
     marginBottom: 30,
   },
@@ -317,11 +333,11 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   carousel: {
-    width: isTablet() ? width * 0.45 :width * 0.4,
-    height: isTablet() ? height * 0.6 :height * 0.4,
+    width: isTablet() ? width * 0.45 : width * 0.4,
+    height: isTablet() ? height * 0.6 : height * 0.4,
   },
   carouselItem: {
-    width:  isTablet() ? width * 0.45 :  width * 0.4,
+    width: isTablet() ? width * 0.45 : width * 0.4,
     height: isTablet() ? height * 0.6 : height * 0.4,
     justifyContent: 'center',
     alignItems: 'center',
@@ -353,34 +369,30 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     paddingHorizontal: theme.spacing.md,
     borderBottomColor: theme.color.borderLightGray,
-    flex:1
+    flex: 1,
   },
   chassisLabel: {
     color: theme.color.borderLightGray,
-    fontSize: 12,
     marginBottom: 5,
   },
   chassisText: {
     color: theme.color.white,
-    fontSize: 14,
     fontWeight: '600',
     textAlign: 'center',
   },
   bhpContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    flex:1,
+    flex: 1,
     borderBottomWidth: 1,
     borderColor: theme.color.borderLightGray,
   },
   bhpNumber: {
     color: theme.color.white,
-    fontSize: 42,
     fontWeight: 'bold',
   },
   bhpUnit: {
     color: theme.color.borderLightGray,
-    fontSize: 14,
     marginTop: -5,
   },
   playButton: {
@@ -398,7 +410,6 @@ const styles = StyleSheet.create({
   },
   experienceText: {
     color: theme.color.borderLightGray,
-    fontSize: 12,
     padding: theme.spacing.md,
     paddingTop: 0,
     textAlign: 'center',
@@ -408,11 +419,11 @@ const styles = StyleSheet.create({
     height: 40,
     tintColor: theme.color.white,
   },
-  saveButtonView:{
-    flex:1,
+  saveButtonView: {
+    flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });
 
 export default EngineDetail;

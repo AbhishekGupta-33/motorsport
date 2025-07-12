@@ -78,13 +78,14 @@ const HomeTwo = () => {
 
   useFocusEffect(
     useCallback(() => {
-      return () => {
-        childrenOpacity.value = 1;
+      childrenOpacity.value = 1;
         middleImageScale.value = 1;
         middleImageTop.value = SCREEN_HEIGHT * 0.2;
         middleImageWidth.value = SCREEN_WIDTH * 0.35;
         middleImageHeight.value = SCREEN_HEIGHT * 0.35;
         topImageScale.value = 1;
+      return () => {
+        
         stop();
       };
     }, []),
