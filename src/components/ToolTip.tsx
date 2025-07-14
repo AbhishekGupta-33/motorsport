@@ -57,12 +57,12 @@ const styles = StyleSheet.create({
     marginRight: -2,
   },
   labelBox: {
-    padding: 10,
     borderRadius: 8,
   },
   labelText: {
     color: 'white',
     fontWeight: '400',
+    margin: 10,
   },
   pressable:{
     height: '80%',

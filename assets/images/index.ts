@@ -4,7 +4,6 @@ export const APP_IMAGE = {
   HomeBG: require('./HomeBG.png'),
   FullController: require('./FullController.png'),
   LinearGradiant: require('./LinearGradiant.png'),
-  PlayButton: require('./PlayButton.png'),
   Lineanimation: require('./Lineanimation.png'),
   RectangleBlur: require('./RectangleBlur.png'),
   BMW_1_1: require('./car1/BMW_1_1.jpg'),

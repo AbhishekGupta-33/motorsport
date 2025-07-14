@@ -1,6 +1,5 @@
 import { Platform, Alert } from 'react-native';
 import * as RNFS from '@dr.pogodin/react-native-fs';
-import Share from 'react-native-share';
 
 export const downloadAndShareMP3 = async (fileName: string) => {
   try {
@@ -11,12 +10,20 @@ export const downloadAndShareMP3 = async (fileName: string) => {
     console.log('📁 Destination path:', destPath);
 
     if (Platform.OS === 'ios') {
-      // iOS uses MainBundlePath
       sourcePath = `${RNFS.MainBundlePath}/${fileName}`;
       console.log('📁 iOS source path:', sourcePath);
+
+      const fileAlreadyExists = await RNFS.exists(destPath);
+
+      if (fileAlreadyExists) {
+        console.log('ℹ️ File already exists at destination path.');
+        Alert.alert('✅ File Path', `The file already exists:\n${destPath}`);
+        return;
+      }
+
       await RNFS.copyFile(sourcePath, destPath);
+      console.log('✅ File copied to temp path');
     } else if (Platform.OS === 'android') {
-      // Android: file must be placed in android/app/src/main/assets/
       const assetFilePath = `audio/${fileName}`;
       console.log('📁 Android asset path:', assetFilePath);
 
@@ -33,13 +40,13 @@ export const downloadAndShareMP3 = async (fileName: string) => {
       console.log('✅ File written to temp path');
     }
 
-    await Share.open({
-      url: `file://${destPath}`,
-      type: 'audio/mpeg',
-      title: 'Save MP3',
-    });
+    // await Share.open({
+    //   url: `file://${destPath}`,
+    //   filename: fileName.toUpperCase(),
+    //   type: 'audio/mpeg',
+    //   title: 'Save MP3',
+    // });
 
-    // Show path in alert
     Alert.alert('✅ File Saved', `Path to file:\n${destPath}`);
   } catch (error: any) {
     console.error('❌ Failed to share MP3:', error);

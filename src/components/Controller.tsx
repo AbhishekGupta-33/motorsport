@@ -165,7 +165,7 @@ const Controller = ({
         <View style={styles.centerView}>
           <AppText size={'md'} style={styles.title}>{t('homeTwoTitle').toUpperCase()}</AppText>
           <AppText size={'xs'} style={styles.description}>{t('homeTwoDes')}</AppText>
-        </View>
+        </View> 
 
       {showToolTip && <Tooltip viewStyle={styles.tollTipStyle} />}
 

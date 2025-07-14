@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useRef} from 'react';
 import {
   View,
   Text,
@@ -6,7 +6,6 @@ import {
   FlatList,
   Dimensions,
   TouchableOpacity,
-  StatusBar,
   ListRenderItem,
   ViewToken,
   Pressable,
@@ -14,9 +13,8 @@ import {
 } from 'react-native';
 import FastImage from '@d11/react-native-fast-image';
 import {APP_IMAGE} from '../../../assets/images';
-import {useNavigation, useRoute} from '@react-navigation/native';
+import {useRoute} from '@react-navigation/native';
 import {theme} from '../../constants/theme';
-import {useGyroSound} from '../../hooks/useGyroSound';
 import {downloadAndShareMP3} from '../../hooks/download';
 import {useTranslation} from 'react-i18next';
 import {useRingtoneSetter} from '../../hooks/useSetRingtone';
@@ -60,9 +58,6 @@ const EngineDetail: React.FC<any> = props => {
   const {t} = useTranslation();
   const {setRingtone} = useRingtoneSetter();
   const motorsportData = useRoute()?.params?.selectedCar;
-  console.log('props?.route?.params-----', motorsportData);
-  // Sample data for the carousel
-
   const onViewableItemsChanged = ({
     viewableItems,
   }: ViewableItemsChanged): void => {
