@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Text, StyleSheet, StatusBar} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {APP_IMAGE} from '../../../assets/images';
 import {useTranslation} from 'react-i18next';
 import LanguageDropdown from '../../components/LanguageDropdown';

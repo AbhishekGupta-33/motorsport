@@ -18,6 +18,7 @@ import {APP_IMAGE} from '../../../assets/images';
 import {storage} from '../../utils/storage';
 import AppText from '../../components/AppText';
 import {theme} from '../../constants/theme';
+import i18n from '../../localization/i18n';
 
 const {height, width} = Dimensions.get('window');
 const AnimatedFastImage = Animated.createAnimatedComponent(FastImage);
@@ -35,6 +36,7 @@ const SplashScreen = () => {
 
     setTimeout(() => {
       const isLangSelected = storage.getString('lang');
+      isLangSelected && i18n.changeLanguage(isLangSelected);
       navigation.replace(
         isLangSelected ? NavgationNames.homeTwo : NavgationNames.home,
       );

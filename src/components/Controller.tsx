@@ -249,8 +249,8 @@ const styles = StyleSheet.create({
   },
   tollTipStyle: {
     alignSelf: 'flex-end',
-    right: isTablet() ? '19%' : '12%',
-    top: isTablet() ? '15%' : '6%',
+    right: isTablet() ? '19%' : '10%',
+    top: isTablet() ? '15%' : '2%',
   },
   centerView: {
     top: isTablet() ? '25%' : '16%',

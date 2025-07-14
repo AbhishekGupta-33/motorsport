@@ -1,10 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   View,
-  Text,
   StyleSheet,
-  Pressable,
-  GestureResponderEvent,
   ViewStyle,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -18,7 +15,6 @@ interface TooltipProps {
 
 const Tooltip: React.FC<TooltipProps> = ({viewStyle}) => {
   const {t} = useTranslation();
-  const [testWidth, setTextWidth] = useState(null);
 
   return (
     <View style={[styles.container, viewStyle]}>
@@ -32,12 +28,9 @@ const Tooltip: React.FC<TooltipProps> = ({viewStyle}) => {
           end={{x: 1, y: 0}}
           style={styles.labelBox}>
           <AppText
-            onLayout={({nativeEvent}) => {
-              setTextWidth(nativeEvent.layout.width);
-            }}
             size={'sm'}
-            style={[styles.labelText, {width: testWidth > '1%' ? '1%' : testWidth}]}
-            numberOfLines={testWidth > '1%' ? 2 : 1}>
+            style={[styles.labelText]}
+            >
             {t('toolTipTitle')}
           </AppText>
         </LinearGradient>
