@@ -1,5 +1,5 @@
-import React, {useEffect, useRef, useCallback} from 'react';
-import {Text, StyleSheet, View, Dimensions} from 'react-native';
+import React, {useEffect, useCallback} from 'react';
+import {StyleSheet, View, Dimensions} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 import {NavgationNames} from '../../constants/NavgationNames';
@@ -38,7 +38,7 @@ const SplashScreen = () => {
       const isLangSelected = storage.getString('lang');
       isLangSelected && i18n.changeLanguage(isLangSelected);
       navigation.replace(
-        isLangSelected ? NavgationNames.homeTwo : NavgationNames.home,
+        isLangSelected ? NavgationNames.homeTwo : NavgationNames.home, { noAnimation: true }
       );
     }, 1200);
   }, []);

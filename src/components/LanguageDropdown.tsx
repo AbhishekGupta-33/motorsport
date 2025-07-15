@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, TouchableOpacity, StyleSheet} from 'react-native';
 import {theme} from '../constants/theme';
 import {useTranslation} from 'react-i18next';
 import i18n from '../localization/i18n';
@@ -32,7 +32,7 @@ const LanguageDropdown = () => {
     if (!selectedLanguage) return;
     i18n.changeLanguage(selectedLanguage);
     storage.set('lang', selectedLanguage);
-    navigation.replace(NavgationNames.homeTwo);
+    navigation.replace(NavgationNames.homeTwo, { noAnimation: true });
   };
 
   const handleLanguageInit = async () => {
