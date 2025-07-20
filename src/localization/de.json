@@ -1,7 +1,7 @@
 {
-  "splash_title": "Brewer Motorsport",
-  "home_title": "Willkommen beim Motorsimulator",
-  "home_button": "Brewer\n Motorsport",
+  "splash_title": "brewer motorsport",
+  "home_title": "Willkommen zum Motor-Simulator",
+  "home_button": "brewer\n motorsport",
   "language_choose": "Sprache wählen",
   "languageList": {
     "english": "Englisch",
@@ -9,36 +9,36 @@
     "spanish": "Spanisch"
   },
   "confirm": "Bestätigen",
-  "homeTwoTitle": "Erkunde Motoren-\noptionen",
-  "homeTwoDes": "Jede der 10 Tasten ermöglicht dir, \neinen Motor zu erkunden. Tippe, um Details zu sehen, \noder halte gedrückt, um den Motorsound zu hören.",
-  "toolTipTitle": "Tippe auf den Knopf",
+  "homeTwoTitle": "Motor-Optionen\n erkunden",
+  "homeTwoDes": "Jeder der 10 Buttons lässt Sie einen \nMotor erkunden. Tippen Sie für Details oder halten \nSie gedrückt, um den Motorsound zu hören.",
+  "toolTipTitle": "Button antippen",
   "close": "Schließen",
-  "shareTitle": "Ringtonedatei speichern",
-  "pathSubDes": "Pfad zu deinem Ton:",
+  "shareTitle": "Klingelton-Datei speichern",
+  "pathSubDes": "Pfad für Ihren Klingelton:",
   "topSpeedTitle": "Geschätzte Höchstgeschwindigkeit",
-  "SpeedUnit": "KMH",
-  "yearRangeTitle": "Baujahr",
+  "SpeedUnit": "MPH",
+  "yearRangeTitle": "Baujahr-Bereich",
   "chassisTitle": "Chassis",
   "bhp": "PS",
-  "AndroidRingTone": "Erlebe es in deinem Klingelton",
-  "IosSaveFile": "Ton speichern",
+  "AndroidRingTone": "Als Klingelton erleben",
+  "IosSaveFile": "Sound speichern",
   "ringtone": {
-    "permission_redirect": "Weiterleitung zu den Einstellungen zur Erteilung der Berechtigung",
-    "copy_failed": "Klingeltondatei konnte nicht kopiert werden.",
-    "multiple_sims_title": "Mehrere SIMs erkannt",
-    "multiple_sims_message": "Aufgrund von Android-Beschränkungen kann der Klingelton nur global festgelegt werden. Du kannst SIM-spezifische Klingeltöne manuell in den Systemeinstellungen festlegen.",
-    "set_globally": "Global festlegen",
+    "permission_redirect": "Weiterleitung zu den Einstellungen für Berechtigung",
+    "copy_failed": "Fehler beim Kopieren der Klingelton-Datei.",
+    "multiple_sims_title": "Mehrere SIM-Karten erkannt",
+    "multiple_sims_message": "Aufgrund von Android-Beschränkungen kann der Klingelton nur global gesetzt werden. Sie können SIM-spezifische Klingeltöne manuell über die Systemeinstellungen festlegen.",
+    "set_globally": "Global setzen",
     "open_settings": "Einstellungen öffnen",
-    "set_globally_success": "Klingelton global festgelegt!",
-    "set_success": "Klingelton festgelegt!",
-    "set_failed": "Klingelton konnte nicht festgelegt werden."
+    "set_globally_success": "Klingelton global gesetzt!",
+    "set_success": "Klingelton gesetzt!",
+    "set_failed": "Fehler beim Setzen des Klingeltons."
   },
   "cancel": "Abbrechen",
   "moterListText": [
     {
       "title": "BMW Motorsport",
       "model": "P66/1/2",
-      "engine": "BMW P66/1 4,0 Liter, Trockensumpf, V8 (4000cc)",
+      "engine": "BMW P66/1 4.0 Liter, Trockensumpf, V8 (4000cc)",
       "topSpeed": "187",
       "yearRange": "2012-2018",
       "bhp": "500+",
@@ -47,7 +47,7 @@
     {
       "title": "BMW Motorsport",
       "model": "P75B59",
-      "engine": "BMW P75 Trockensumpf, 5,9 Liter, V12 (5990cc)",
+      "engine": "BMW P75 Trockensumpf, 5.9 Liter, V12 (5990cc)",
       "topSpeed": "217+",
       "yearRange": "1999-2000",
       "bhp": "580",
@@ -56,7 +56,7 @@
     {
       "title": "BMW Motorsport",
       "model": "S42B20",
-      "engine": "BMW S42B20, Trockensumpf, 2,0L, 4-Zylinder Reihenmotor (1998cc)",
+      "engine": "BMW S42B20, Trockensumpf, 2.0L, 4-Zylinder Reihenmotor (1998cc)",
       "topSpeed": "285+",
       "yearRange": "1994-1998",
       "bhp": "140",
@@ -65,7 +65,7 @@
     {
       "title": "BMW Motorsport",
       "model": "S50B32",
-      "engine": "BMW S50B32, Trockensumpf, 3,2 L, Reihensechszylinder (3201cc)",
+      "engine": "BMW S50B32, Trockensumpf, 3.2 L, Reihensechszylinder (3201cc)",
       "topSpeed": "175",
       "yearRange": "1996-1999",
       "bhp": "425",
@@ -74,7 +74,7 @@
     {
       "title": "BMW Motorsport",
       "model": "P54B32",
-      "engine": "BMW P54B32 3,2 Liter Reihensechszylinder (3246cc)",
+      "engine": "BMW P54B32 3.2 Liter Reihensechszylinder (3246cc)",
       "topSpeed": "177",
       "yearRange": "2001-2006",
       "bhp": "435",
@@ -83,7 +83,7 @@
     {
       "title": "BMW Motorsport",
       "model": "P60B40",
-      "engine": "BMW P60B40 Trockensumpf, 4,0 Liter V8 (3997cc)",
+      "engine": "BMW P60B40 Trockensumpf, 4.0-Liter V8 (3997cc)",
       "topSpeed": "174",
       "yearRange": "2001-2005",
       "bhp": "450",
@@ -92,7 +92,7 @@
     {
       "title": "BMW Motorsport",
       "model": "P65B40-44",
-      "engine": "BMW P65B44 Trockensumpf, 4,4 Liter V8 (4400cc)",
+      "engine": "BMW P65B44 Trockensumpf, 4.4 Liter V8 (4400cc)",
       "topSpeed": "500+",
       "yearRange": "2009-2011",
       "bhp": "633",
@@ -101,7 +101,7 @@
     {
       "title": "BMW Motorsport",
       "model": "P48R20",
-      "engine": "BMW P48R20 Trockensumpf, Turbo, 1,9 Liter, 4-Zylinder (1999cc)",
+      "engine": "BMW P48R20 Trockensumpf, Turbo, 1.9 Liter, 4-Zylinder (1999cc)",
       "topSpeed": "300",
       "yearRange": "2019-2020",
       "bhp": "630+",
@@ -110,7 +110,7 @@
     {
       "title": "BMW Motorsport",
       "model": "P80",
-      "engine": "BMW P80 Trockensumpf, 2,9 Liter, V12 (2998cc)",
+      "engine": "BMW P80 Trockensumpf, 2.9 Liter, V12 (2998cc)",
       "topSpeed": "233+",
       "yearRange": "2001-2005",
       "bhp": "880+",
@@ -119,11 +119,21 @@
     {
       "title": "BMW Motorsport",
       "model": "S70/3",
-      "engine": "BMW S70/3-GTR Trockensumpf, 6,0 Liter, V12 (6064cc)",
+      "engine": "BMW S70/3-GTR Trockensumpf, 6.0 Liter, V12 (6064cc)",
       "topSpeed": "230",
       "yearRange": "1996-1997",
       "bhp": "615",
-      "chassis": "BMW-angetriebener McLaren F1 GTR & GTR Longtail"
+      "chassis": "BMW Powered McLaren F1 GTR & GTR Longtail"
     }
-  ]
+  ],
+  "soundListModel": {
+    "title": "Sound auswählen",
+    "play": "Abspielen",
+    "default": "Standard"
+  },
+  "paymentModal": {
+    "title": "Premium BMW Motorsound",
+    "subtitle": "Erleben Sie authentisches BMW Motorenbrüllen",
+    "buttonText": "Klicken zum Kaufen"
+  }
 }

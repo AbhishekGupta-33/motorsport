@@ -125,5 +125,15 @@
       "bhp": "615",
       "chassis": "BMW Powered McLaren F1 GTR & GTR Longtail"
     }
-  ]
+  ],
+  "soundListModel":{
+    "title": "Select Sound",
+    "play": "Play",
+    "default": "Default"
+  },
+  "paymentModal":{
+    "title": "Premium BMW Engine Sound",
+    "subtitle": "Experience authentic BMW engine roar",
+    "buttonText": "Click to Buy"
+  }
 }

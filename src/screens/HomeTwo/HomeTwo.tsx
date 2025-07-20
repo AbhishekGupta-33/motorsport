@@ -38,16 +38,17 @@ const imageGroups = [
 ];
 
 const sounds = [
-  'bmw_1.m4a',
-  'bmw_2.m4a',
-  'bmw_3.m4a',
-  'bmw_4.m4a',
-  'bmw_5.m4a',
-  'bmw_6.m4a',
-  'bmw_7.m4a',
-  'bmw_8.m4a',
-  'bmw_9.m4a',
-  'bmw_10.m4a',
+  ['bmw_1.m4a', 'bmw_2.m4a'],
+  ['bmw_2.m4a'],
+  ['bmw_2.m4a'],
+  ['bmw_3.m4a'],
+  ['bmw_4.m4a'],
+  ['bmw_5.m4a'],
+  ['bmw_6.m4a'],
+  ['bmw_7.m4a'],
+  ['bmw_8.m4a'],
+  ['bmw_9.m4a'],
+  ['bmw_10.m4a'],
 ];
 
 const HomeTwo = () => {
@@ -75,7 +76,7 @@ const HomeTwo = () => {
   }, [t]);
 
   const {startSound, stop, isPlaying} = useGyroSound(
-    motorsportData.find(elem => elem.id === currentID)?.sound || '',
+    [motorsportData.find(elem => elem.id === currentID)?.sound] || '',
   );
 
   const anim = {

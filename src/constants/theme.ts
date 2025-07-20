@@ -6,6 +6,7 @@ export const theme = {
     white: '#ffffff',
     darkGrey: '#272727',
     borderLightGray: '#6B6666',
+    borderExtraLightGray: '#d5d2d2ff',
     selectedDotColor: '#522EAC',
     selectedListDotColor: '#007CEC',
   },

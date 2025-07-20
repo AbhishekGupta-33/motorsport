@@ -59,15 +59,12 @@ export const useGyroSound = (SOUND_FILE: string) => {
   };
 
   const startSound = () => {
-    console.log('isPlaying------',isPlaying, soundRef.current)
     if (isPlaying || soundRef.current) return;
-console.log('isPlaying-----2-',SOUND_FILE, Sound.MAIN_BUNDLE)
     const sound = new Sound(SOUND_FILE, Sound.MAIN_BUNDLE, error => {
       if (error) {
         console.error('Failed to load sound:', error);
         return;
       }
-console.log('isPlaying-----3-',)
 
       sound.setVolume(BASE_VOLUME);
       sound.setNumberOfLoops(-1);
@@ -80,6 +77,41 @@ console.log('isPlaying-----3-',)
     });
   };
 
+  const playSoundInFullVolume = (isContinueSoundPlay: boolean) => {
+    console.log('playSoundInFullVolume: ->isPlaying', isPlaying);
+
+    if (isPlaying || soundRef.current) return false;
+    const sound = new Sound(SOUND_FILE, Sound.MAIN_BUNDLE, error => {
+      if (error) {
+        console.error('Failed to load sound:', error);
+        return;
+      }
+    });
+
+    sound.setVolume(1);
+    sound.play();
+    soundRef.current = sound;
+    setIsPlaying(true);
+    isContinueSoundPlay && sound.setNumberOfLoops(-1);
+    return new Promise(resolve => {
+      if (isContinueSoundPlay) {
+        resolve(false);
+      } else {
+        setTimeout(() => {
+          soundRef.current?.stop();
+          soundRef.current?.release();
+          soundRef.current = null;
+          setIsPlaying(false);
+          console.log(
+            'playSoundInFullVolume: ->soundRef.current',
+            soundRef.current,
+          );
+          resolve(true);
+        }, 3000);
+      }
+    });
+  };
+
   useEffect(() => {
     return cleanupResources;
   }, []);
@@ -88,5 +120,6 @@ console.log('isPlaying-----3-',)
     startSound,
     stop: cleanupResources,
     isPlaying,
+    playSoundInFullVolume,
   };
 };

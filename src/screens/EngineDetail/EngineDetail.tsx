@@ -1,15 +1,12 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {
   View,
-  Text,
-  StyleSheet,
-  FlatList,
-  Dimensions,
   TouchableOpacity,
-  ListRenderItem,
-  ViewToken,
+  Dimensions,
+  FlatList,
   Pressable,
   Platform,
+  StyleSheet,
 } from 'react-native';
 import FastImage from '@d11/react-native-fast-image';
 import {APP_IMAGE} from '../../../assets/images';
@@ -20,6 +17,8 @@ import {useTranslation} from 'react-i18next';
 import {useRingtoneSetter} from '../../hooks/useSetRingtone';
 import {isTablet} from 'react-native-device-info';
 import AppText from '../../components/AppText';
+import SoundListModel from '../../components/SoundListModel';
+import {useGyroSound} from '../../hooks/useGyroSound';
 
 const {height, width} = Dimensions.get('window');
 
@@ -53,24 +52,26 @@ const renderCarouselItem: ListRenderItem<MotorsportItem> = ({item, index}) => (
 );
 
 const EngineDetail: React.FC<any> = props => {
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const flatListRef = useRef<FlatList<MotorsportItem>>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isSoundListModel, setIsSoundListModel] = useState(false);
+  const [isPaymentModel, setIsPaymentModel] = useState(false);
+  const [isDefaultPlay, setIsDefaultPlay] = useState(false);
+  const [selectedSound, setSelectedSound] = useState('');
+  const flatListRef = useRef<FlatList<any>>(null);
   const {t} = useTranslation();
   const {setRingtone} = useRingtoneSetter();
   const motorsportData = useRoute()?.params?.selectedCar;
-  const onViewableItemsChanged = ({
-    viewableItems,
-  }: ViewableItemsChanged): void => {
+  const {playSoundInFullVolume, stop} = useGyroSound(selectedSound);
+
+  const onViewableItemsChanged = ({viewableItems}: any) => {
     if (viewableItems.length > 0) {
       setCurrentIndex(viewableItems[0].index || 0);
     }
   };
 
-  const viewabilityConfig = {
-    itemVisiblePercentThreshold: 50,
-  };
+  const viewabilityConfig = {itemVisiblePercentThreshold: 50};
 
-  const renderDot = (index: number): JSX.Element => (
+  const renderDot = (index: number) => (
     <TouchableOpacity
       key={index}
       style={[
@@ -84,26 +85,53 @@ const EngineDetail: React.FC<any> = props => {
               : theme.color.borderLightGray,
         },
       ]}
-      onPress={() => {
-        flatListRef.current?.scrollToIndex({index, animated: true});
-      }}
+      onPress={() =>
+        flatListRef.current?.scrollToIndex({index, animated: true})
+      }
     />
   );
 
-  function onClosePress() {
-    props.navigation.goBack();
-  }
-  async function onPlay() {
-    if (Platform.OS === 'ios') {
-      await downloadAndShareMP3(motorsportData?.sound);
-    } else {
-      setRingtone(motorsportData?.sound);
+  const onClosePress = () => props.navigation.goBack();
+
+  const onPlay = async () => {
+    if (motorsportData?.sound?.length > 1) {
+      setIsSoundListModel(true);
+      return;
     }
-  }
+    if (Platform.OS === 'ios') {
+      await downloadAndShareMP3(motorsportData?.sound[0]);
+    } else {
+      setRingtone(motorsportData?.sound[0]);
+    }
+  };
+
+  const onPlayFromSoundList = async (item: string, isDefault: boolean) => {
+    stop()
+    setIsDefaultPlay(isDefault)
+    setSelectedSound('');
+    setTimeout(() => {
+      setSelectedSound(item);
+    }, 100);
+  };
+
+  const onPlayfullSound = async () => {
+
+    const isPlayedThreeSecond = await playSoundInFullVolume(isDefaultPlay);
+    if (isPlayedThreeSecond) {
+      setIsPaymentModel(true);
+    }
+  };
+
+  const onPurchase = () => {
+    // Add purchase logic here
+  };
+
+  useEffect(() => {
+    if (selectedSound) onPlayfullSound();
+  }, [selectedSound]);
 
   return (
     <View style={styles.container}>
-      {/* Background */}
       <FastImage
         source={APP_IMAGE.LinearGradiant}
         style={styles.backgroundImage}
@@ -111,12 +139,12 @@ const EngineDetail: React.FC<any> = props => {
       />
 
       <View style={styles.topContainer}>
-        {/* Close Button */}
         <TouchableOpacity style={styles.closeButton} onPress={onClosePress}>
           <AppText size={'md'} style={styles.closeText}>
             {t('close')} ✕
           </AppText>
         </TouchableOpacity>
+
         <View style={styles.viewCOntainerStyle}>
           {/* Left Panel - Engine Details */}
           <View style={styles.leftPanel}>
@@ -214,6 +242,17 @@ const EngineDetail: React.FC<any> = props => {
             </View>
           </View>
         </View>
+
+        {/* SoundList Modal */}
+        <SoundListModel
+          visible={isSoundListModel}
+          isPaymentModel={isPaymentModel}
+          data={motorsportData?.sound}
+          onClose={() => setIsSoundListModel(false)}
+          onPaymentClose={() => setIsPaymentModel(false)}
+          onPlay={onPlayFromSoundList}
+          onPurchase={onPurchase}
+        />
       </View>
     </View>
   );
@@ -246,7 +285,6 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   closeButton: {
-    // position: 'absolute',
     marginVertical: 10,
     right: 80,
     alignSelf: 'flex-end',
