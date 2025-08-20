@@ -296,6 +296,7 @@ const styles = StyleSheet.create({
   topView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     zIndex: 10,
     padding: 10,
     paddingHorizontal: '5%' 
@@ -323,7 +324,6 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   closeButton: {
-    alignSelf: 'flex-end',
   },
   closeText: {
     color: theme.color.red,
