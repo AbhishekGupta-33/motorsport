@@ -5,6 +5,7 @@ import {useTranslation} from 'react-i18next';
 import LanguageDropdown from '../../components/LanguageDropdown';
 import StackedFastImageLayout from '../../components/StackedFastImageLayout';
 import AppText from '../../components/AppText';
+import { theme } from '../../constants/theme';
 
 
 const Home = () => {
@@ -24,6 +25,7 @@ const Home = () => {
       middleImage={APP_IMAGE.LinearGradiant}
       topImage={APP_IMAGE.FullController}
       containerStyle={{height: '100%'}}
+      middleImageStyle={{tintColor: theme.color.black}}
       childrenStyle={styles.viewStyle}>
       {!intialLoad ? (
         <AppText size={'xs'} style={styles.title}>{t('home_button').toUpperCase()}</AppText>

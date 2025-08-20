@@ -5,10 +5,15 @@ export const theme = {
     pureMaroon: 'rgba(140, 8, 27)',
     white: '#ffffff',
     darkGrey: '#272727',
+    black: '#000000',
     borderLightGray: '#6B6666',
-    borderExtraLightGray: '#d5d2d2ff',
+    borderExtraLightGray: '#e3d4d4ff',
     selectedDotColor: '#522EAC',
     selectedListDotColor: '#007CEC',
+    blue: '#0411c6',
+    green: '#35EC1D',
+    red: '#b80000ff',
+    yellow: '#f0c208ff'
   },
   spacing: {
     // Tiny

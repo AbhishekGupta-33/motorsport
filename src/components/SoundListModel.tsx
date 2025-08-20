@@ -113,10 +113,10 @@ const styles = StyleSheet.create({
   overlayBackground: {
     alignItems: 'center',
     alignSelf: 'center',
-    borderRadius: 8,
+    borderRadius: theme.spacing.md,
     marginTop: '5%',
-    width: '90%',
-    height: '90%',
+    width: '50%',
+    height: '70%',
   },
   modalContainer: {
     borderRadius: 12,
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     borderColor: theme.color.borderExtraLightGray,
-    borderWidth: 1,
+    // borderWidth: 0.8,
     borderRadius: 8,
     padding: theme.spacing.sm,
     marginBottom: theme.spacing.sm,

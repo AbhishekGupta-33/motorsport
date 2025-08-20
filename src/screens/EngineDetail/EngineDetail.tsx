@@ -7,6 +7,8 @@ import {
   Pressable,
   Platform,
   StyleSheet,
+  ListRenderItem,
+  ViewToken,
 } from 'react-native';
 import FastImage from '@d11/react-native-fast-image';
 import {APP_IMAGE} from '../../../assets/images';
@@ -19,6 +21,7 @@ import {isTablet} from 'react-native-device-info';
 import AppText from '../../components/AppText';
 import SoundListModel from '../../components/SoundListModel';
 import {useGyroSound} from '../../hooks/useGyroSound';
+import Share from 'react-native-share';
 
 const {height, width} = Dimensions.get('window');
 
@@ -28,9 +31,10 @@ interface MotorsportItem {
   title: string;
   model: string;
   engine: string;
+  enginDetail: string;
   topSpeed: string;
   yearRange: string;
-  bhp: string;
+  power: string;
   chassis: string;
   image: string;
   sound: string;
@@ -41,12 +45,12 @@ interface ViewableItemsChanged {
   changed: ViewToken[];
 }
 
-const renderCarouselItem: ListRenderItem<MotorsportItem> = ({item, index}) => (
+const renderCarouselItem: ListRenderItem<MotorsportItem> = ({item}) => (
   <View style={styles.carouselItem}>
     <FastImage
       source={item}
       style={styles.carImage}
-      resizeMode={FastImage.resizeMode.contain}
+      resizeMode={FastImage.resizeMode.stretch}
     />
   </View>
 );
@@ -79,10 +83,10 @@ const EngineDetail: React.FC<any> = props => {
         {
           backgroundColor:
             index === currentIndex
-              ? theme.color.selectedDotColor
+              ? theme.color.red
               : index < currentIndex
-              ? theme.color.selectedListDotColor
-              : theme.color.borderLightGray,
+              ? theme.color.selectedDotColor
+              : theme.color.black,
         },
       ]}
       onPress={() =>
@@ -94,10 +98,10 @@ const EngineDetail: React.FC<any> = props => {
   const onClosePress = () => props.navigation.goBack();
 
   const onPlay = async () => {
-    if (motorsportData?.sound?.length > 1) {
-      setIsSoundListModel(true);
-      return;
-    }
+    // if (motorsportData?.sound?.length > 1) {
+    //   setIsSoundListModel(true);
+    //   return;
+    // }
     if (Platform.OS === 'ios') {
       await downloadAndShareMP3(motorsportData?.sound[0]);
     } else {
@@ -106,8 +110,8 @@ const EngineDetail: React.FC<any> = props => {
   };
 
   const onPlayFromSoundList = async (item: string, isDefault: boolean) => {
-    stop()
-    setIsDefaultPlay(isDefault)
+    stop();
+    setIsDefaultPlay(isDefault);
     setSelectedSound('');
     setTimeout(() => {
       setSelectedSound(item);
@@ -115,7 +119,6 @@ const EngineDetail: React.FC<any> = props => {
   };
 
   const onPlayfullSound = async () => {
-
     const isPlayedThreeSecond = await playSoundInFullVolume(isDefaultPlay);
     if (isPlayedThreeSecond) {
       setIsPaymentModel(true);
@@ -124,6 +127,19 @@ const EngineDetail: React.FC<any> = props => {
 
   const onPurchase = () => {
     // Add purchase logic here
+  };
+  const handleShare = async () => {
+    const options = {
+      title: 'Share via',
+      message: 'Check out this awesome React Native project!',
+      url: 'https://reactnative.dev',
+    };
+
+    try {
+      await Share.open(options);
+    } catch (error: any) {
+      // Alert.alert(error?.message);
+    }
   };
 
   useEffect(() => {
@@ -136,39 +152,51 @@ const EngineDetail: React.FC<any> = props => {
         source={APP_IMAGE.LinearGradiant}
         style={styles.backgroundImage}
         resizeMode={FastImage.resizeMode.cover}
+        tintColor={theme.color.white}
       />
 
       <View style={styles.topContainer}>
-        <TouchableOpacity style={styles.closeButton} onPress={onClosePress}>
-          <AppText size={'md'} style={styles.closeText}>
-            {t('close')} ✕
-          </AppText>
-        </TouchableOpacity>
+        <View style={styles.topView}>
+          <TouchableOpacity style={styles.topleftView} onPress={handleShare}>
+            <FastImage
+              source={APP_IMAGE.shareIcon}
+              style={styles.shareIconStyle}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.closeButton} onPress={onClosePress}>
+            <AppText size={'md'} style={styles.closeText}>
+              {t('close')} ✕
+            </AppText>
+          </TouchableOpacity>
+        </View>
 
         <View style={styles.viewCOntainerStyle}>
           {/* Left Panel - Engine Details */}
           <View style={styles.leftPanel}>
-            <View style={styles.modelNameCntainer}>
-              <AppText size={'sm'} style={styles.engineText}>
+            <View style={styles.listItemView}>
+              <AppText size={'lg'} style={styles.listTitle}>
+                {t('enginRace')}
+              </AppText>
+              <AppText size={'md'} style={styles.listDesText}>
                 {motorsportData.engine}
+              </AppText>
+              <AppText size={'xs'} style={styles.listSubDesText}>
+                {motorsportData.enginDetail}
               </AppText>
             </View>
             <View style={styles.speedContainer}>
-              <AppText size={'xs'} style={styles.speedtitle}>
+              <AppText size={'lg'} style={styles.listTitle}>
                 {t('topSpeedTitle')}
               </AppText>
-              <AppText size={'xxxl'} style={styles.speedNumber}>
+              <AppText size={'md'} style={styles.listDesText}>
                 {motorsportData.topSpeed}
               </AppText>
-              <AppText size={'xs'} style={styles.speedUnit}>
-                {t('SpeedUnit')}
-              </AppText>
             </View>
-            <View style={styles.yearView}>
-              <AppText size={'xs'} style={styles.yearRange}>
+            <View style={styles.listItemView}>
+              <AppText size={'lg'} style={styles.listTitle}>
                 {t('yearRangeTitle')}
               </AppText>
-              <AppText size={'md'} style={styles.yearText}>
+              <AppText size={'md'} style={styles.listDesText}>
                 {motorsportData.yearRange}
               </AppText>
             </View>
@@ -179,7 +207,7 @@ const EngineDetail: React.FC<any> = props => {
             <AppText size={'xxl'} style={styles.mainTitle}>
               {motorsportData.title}
             </AppText>
-            <AppText size={'xl'} style={styles.modelText}>
+            <AppText size={'xxl'} style={styles.modelText}>
               {motorsportData.model}
             </AppText>
 
@@ -205,40 +233,39 @@ const EngineDetail: React.FC<any> = props => {
             </View>
           </View>
 
-          {/* Right Panel - Chassis and BHP */}
+          {/* Right Panel - Chassis and Powe */}
           <View style={styles.rightPanel}>
-            <View style={styles.chassisView}>
-              <AppText size={'xs'} style={styles.chassisLabel}>
+            <View style={styles.listItemView}>
+              <AppText size={'lg'} style={styles.listTitle}>
                 {t('chassisTitle')}
               </AppText>
-              <AppText size={'sm'} style={styles.chassisText}>
+              <AppText size={'sm'} style={styles.listDesText}>
                 {motorsportData.chassis}
               </AppText>
             </View>
 
             <View style={styles.bhpContainer}>
-              <AppText size={'xxxl'} style={styles.bhpNumber}>
-                {motorsportData.bhp}
+              <AppText size={'lg'} style={styles.listTitle}>
+                {t('power')}
               </AppText>
-              <AppText size={'sm'} style={styles.bhpUnit}>
-                {t('bhp')}
+              <AppText size={'sm'} style={styles.listDesText}>
+                {motorsportData.power}
               </AppText>
             </View>
 
             {/* Play Button */}
-            <View style={styles.saveButtonView}>
-              <Pressable style={styles.playButton} onPress={onPlay}>
-                <FastImage
-                  source={APP_IMAGE.save}
-                  style={styles.playButtonStyle}
-                  tintColor={theme.color.white}
-                />
-              </Pressable>
+            <View style={styles.listItemView}>
               <AppText size={'xs'} style={styles.experienceText}>
                 {Platform.OS === 'android'
                   ? t('AndroidRingTone')
                   : t('IosSaveFile')}
               </AppText>
+              <Pressable style={styles.playButton} onPress={onPlay}>
+                <FastImage
+                  source={APP_IMAGE.startEngine}
+                  style={styles.playButtonStyle}
+                />
+              </Pressable>
             </View>
           </View>
         </View>
@@ -266,118 +293,113 @@ const styles = StyleSheet.create({
     justifyContent: isTablet() ? 'space-evenly' : 'flex-start',
     flex: 1,
   },
+  topView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    zIndex: 10,
+    padding: 10,
+    paddingHorizontal: '5%' 
+  },
+  topleftView: {
+    backgroundColor: theme.color.white + '50',
+    padding: theme.spacing.sm,
+    borderRadius: 5,
+    alignSelf: 'flex-start',
+  },
+  shareIconStyle: {
+    height: 30,
+    width: 30,
+  },
   viewCOntainerStyle: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     paddingHorizontal: '1%',
-    width: '95%',
-    height: isTablet() ? '90%' : '80%',
-    // flex: 1
+    width: '98%',
+    height: isTablet() ? '85%' : '80%',
   },
   backgroundImage: {
     position: 'absolute',
     width: '100%',
     height: '100%',
   },
-  overlay: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-  },
   closeButton: {
-    marginVertical: 10,
-    right: 80,
     alignSelf: 'flex-end',
-    zIndex: 10,
   },
   closeText: {
-    color: theme.color.white,
-    fontWeight: '500',
+    color: theme.color.red,
+    fontWeight: 'bold',
   },
   leftPanel: {
     width: '25%',
     borderWidth: 1,
-    borderColor: theme.color.borderLightGray,
+    borderColor: theme.color.black,
     justifyContent: 'space-evenly',
   },
-  modelNameCntainer: {
+  listItemView: {
     justifyContent: 'center',
     alignContent: 'center',
-    borderBottomWidth: 1,
-    borderColor: theme.color.borderLightGray,
     flex: 1,
-  },
-  engineText: {
-    color: theme.color.white,
-    textAlign: 'center',
     padding: theme.spacing.md,
+  },
+  listTitle: {
+    color: theme.color.black,
+    letterSpacing: 1.1,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  listDesText: {
+    color: theme.color.blue,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  listSubDesText: {
+    color: theme.color.blue,
+    fontWeight: '500',
+    textAlign: 'center',
+  },
+  bhpContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    padding: theme.spacing.md,
+    borderColor: theme.color.black,
   },
   speedContainer: {
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
     padding: theme.spacing.md,
+    borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderColor: theme.color.borderLightGray,
-  },
-  speedtitle: {
-    color: theme.color.borderLightGray,
-    textAlign: 'center',
-  },
-  speedNumber: {
-    color: theme.color.white,
-    fontWeight: 'bold',
-  },
-  speedUnit: {
-    color: theme.color.borderLightGray,
-  },
-  yearView: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    flex: 1,
-  },
-  yearRange: {
-    color: theme.color.borderLightGray,
-    textAlign: 'center',
-    marginBottom: 5,
-  },
-  yearText: {
-    color: theme.color.white,
-    textAlign: 'center',
-    fontWeight: 'bold',
+    borderColor: theme.color.black,
   },
   centerPanel: {
-    // justifyContent: 'center',
     width: '40%',
     alignItems: 'center',
   },
   mainTitle: {
-    color: theme.color.white,
+    color: theme.color.black,
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 5,
   },
   modelText: {
-    color: theme.color.white,
+    color: theme.color.black,
     fontWeight: '600',
-    marginBottom: 30,
-  },
-  carouselContainer: {
-    marginBottom: 20,
   },
   carousel: {
-    width: isTablet() ? width * 0.45 : width * 0.4,
+    width: isTablet() ? width * 0.42 : width * 0.4,
     height: isTablet() ? height * 0.6 : height * 0.4,
   },
   carouselItem: {
-    width: isTablet() ? width * 0.45 : width * 0.4,
-    height: isTablet() ? height * 0.6 : height * 0.4,
     justifyContent: 'center',
     alignItems: 'center',
   },
   carImage: {
-    width: isTablet() ? width * 0.4 : width * 0.35,
-    height: isTablet() ? height * 0.6 : height * 0.38,
+    width: isTablet() ? width * 0.42 : width * 0.4,
+    height: isTablet() ? height * 0.6 : height * 0.4,
   },
   dotsContainer: {
     flexDirection: 'row',
@@ -393,69 +415,22 @@ const styles = StyleSheet.create({
   rightPanel: {
     width: '25%',
     borderWidth: 1,
-    borderColor: theme.color.borderLightGray,
+    borderColor: theme.color.black,
     justifyContent: 'space-evenly',
-  },
-  chassisView: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderBottomWidth: 1,
-    paddingHorizontal: theme.spacing.md,
-    borderBottomColor: theme.color.borderLightGray,
-    flex: 1,
-  },
-  chassisLabel: {
-    color: theme.color.borderLightGray,
-    marginBottom: 5,
-  },
-  chassisText: {
-    color: theme.color.white,
-    fontWeight: '600',
-    textAlign: 'center',
-  },
-  bhpContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    borderBottomWidth: 1,
-    borderColor: theme.color.borderLightGray,
-  },
-  bhpNumber: {
-    color: theme.color.white,
-    fontWeight: 'bold',
-  },
-  bhpUnit: {
-    color: theme.color.borderLightGray,
-    marginTop: -5,
   },
   playButton: {
     justifyContent: 'center',
     alignSelf: 'center',
-    alignItems: 'center',
-    marginTop: theme.spacing.sm,
-    padding: theme.spacing.sm,
-    paddingBottom: 10,
-  },
-  playIcon: {
-    color: '#000',
-    fontSize: 40,
-    marginLeft: 3,
   },
   experienceText: {
-    color: theme.color.borderLightGray,
-    padding: theme.spacing.md,
-    paddingTop: 0,
+    color: theme.color.black,
+    paddingBottom: theme.spacing.md,
+    fontWeight: 'bold',
     textAlign: 'center',
   },
   playButtonStyle: {
-    width: 40,
-    height: 40,
-    tintColor: theme.color.white,
-  },
-  saveButtonView: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: 50,
+    height: 50,
   },
 });
 

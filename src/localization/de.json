@@ -1,7 +1,7 @@
 {
-  "splash_title": "brewer motorsport",
-  "home_title": "Willkommen zum Motor-Simulator",
-  "home_button": "brewer\n motorsport",
+  "splash_title": "LEGENDARY DRIVE",
+  "home_title": "Willkommen beim Motorsimulator",
+  "home_button": "BREWER MOTORSPORT",
   "language_choose": "Sprache wählen",
   "languageList": {
     "english": "Englisch",
@@ -9,121 +9,134 @@
     "spanish": "Spanisch"
   },
   "confirm": "Bestätigen",
-  "homeTwoTitle": "Motor-Optionen\n erkunden",
-  "homeTwoDes": "Jeder der 10 Buttons lässt Sie einen \nMotor erkunden. Tippen Sie für Details oder halten \nSie gedrückt, um den Motorsound zu hören.",
-  "toolTipTitle": "Button antippen",
+  "homeTwoTitle": "Motorenoptionen\nerkunden",
+  "homeTwoDes": "Jeder der 10 Knöpfe lässt Sie einen Motor \nerkunden. Tippen Sie, um Details zu sehen, oder drücken\nSie lange, um den Motorsound zu hören.",
+  "toolTipTitle": "Knopf antippen",
   "close": "Schließen",
   "shareTitle": "Klingelton-Datei speichern",
   "pathSubDes": "Pfad für Ihren Klingelton:",
-  "topSpeedTitle": "Geschätzte Höchstgeschwindigkeit",
-  "SpeedUnit": "MPH",
-  "yearRangeTitle": "Baujahr-Bereich",
-  "chassisTitle": "Chassis",
+  "topSpeedTitle": "HÖCHSTGESCHWINDIGKEIT",
+  "enginRace": "RENNMOTOR",
+  "SpeedUnit": "KM/H",
+  "yearRangeTitle": "JAHRESBEREICH",
+  "chassisTitle": "CHASSIS",
   "bhp": "PS",
-  "AndroidRingTone": "Als Klingelton erleben",
+  "power": "LEISTUNG",
+  "AndroidRingTone": "ALS MEINEN KLINGELTON FESTLEGEN",
+  "startEngine": "MOTOR\nSTARTEN",
   "IosSaveFile": "Sound speichern",
   "ringtone": {
-    "permission_redirect": "Weiterleitung zu den Einstellungen für Berechtigung",
-    "copy_failed": "Fehler beim Kopieren der Klingelton-Datei.",
+    "permission_redirect": "Weiterleitung zu den Einstellungen, um die Berechtigung zu erteilen",
+    "copy_failed": "Klingelton-Datei konnte nicht kopiert werden.",
     "multiple_sims_title": "Mehrere SIM-Karten erkannt",
-    "multiple_sims_message": "Aufgrund von Android-Beschränkungen kann der Klingelton nur global gesetzt werden. Sie können SIM-spezifische Klingeltöne manuell über die Systemeinstellungen festlegen.",
-    "set_globally": "Global setzen",
+    "multiple_sims_message": "Aufgrund von Android-Einschränkungen kann der Klingelton nur global eingestellt werden. Sie können SIM-spezifische Klingeltöne manuell über die Systemeinstellungen festlegen.",
+    "set_globally": "Global festlegen",
     "open_settings": "Einstellungen öffnen",
-    "set_globally_success": "Klingelton global gesetzt!",
-    "set_success": "Klingelton gesetzt!",
-    "set_failed": "Fehler beim Setzen des Klingeltons."
+    "set_globally_success": "Klingelton global festgelegt!",
+    "set_success": "Klingelton festgelegt!",
+    "set_failed": "Klingelton konnte nicht festgelegt werden."
   },
   "cancel": "Abbrechen",
   "moterListText": [
     {
       "title": "BMW Motorsport",
-      "model": "P66/1/2",
-      "engine": "BMW P66/1 4.0 Liter, Trockensumpf, V8 (4000cc)",
-      "topSpeed": "187",
-      "yearRange": "2012-2018",
-      "bhp": "500+",
-      "chassis": "BMW Motorsport M3 & M4 DTM"
+      "model": "P66",
+      "engine": "BMW P66B40",
+      "enginDetail": "4.0L, Trockensumpf, V8 (4,000) Verdichtung 13.0:1",
+      "topSpeed": "171+ mph / 275+ km/h",
+      "yearRange": "2012 - 2018",
+      "power": "480+ PS./ 369+ft. lbs. TQ.",
+      "chassis": "BMW Motorsport M3 & M4 DTM Carbon Fiber Monocoque"
     },
     {
       "title": "BMW Motorsport",
-      "model": "P75B59",
-      "engine": "BMW P75 Trockensumpf, 5.9 Liter, V12 (5990cc)",
-      "topSpeed": "217+",
-      "yearRange": "1999-2000",
-      "bhp": "580",
+      "model": "P75",
+      "engine": "BMW P75",
+      "enginDetail": "5.9L, Trockensumpf, V12 (5,990cc)",
+      "topSpeed": "217+ mph / 350+ km/h",
+      "yearRange": "1999 - 2000",
+      "power": "580+ BHP",
       "chassis": "BMW Motorsport V12 LMR"
     },
     {
       "title": "BMW Motorsport",
-      "model": "S42B20",
-      "engine": "BMW S42B20, Trockensumpf, 2.0L, 4-Zylinder Reihenmotor (1998cc)",
-      "topSpeed": "285+",
-      "yearRange": "1994-1998",
-      "bhp": "140",
-      "chassis": "BMW E36/4 318is & 320is Gruppe A, STC"
+      "model": "S42",
+      "engine": "BMW S42B20",
+      "enginDetail": "2.0L, Reihen-4-Zyl. (1,998cc), Verdichtung 13.0:1",
+      "topSpeed": "140+ mph / 225.30+ km/h",
+      "yearRange": "1994 - 1999",
+      "power": "299+ PS / 191.77+ ft.lbs. TQ",
+      "chassis": "BMW Motorsport E36 320i STC"
     },
     {
       "title": "BMW Motorsport",
-      "model": "S50B32",
-      "engine": "BMW S50B32, Trockensumpf, 3.2 L, Reihensechszylinder (3201cc)",
-      "topSpeed": "175",
-      "yearRange": "1996-1999",
-      "bhp": "425",
-      "chassis": "BMW E36 & E36/4 M3 Gruppe A, GTR, GT, IMSA"
+      "model": "S50",
+      "engine": "BMW S50B32",
+      "enginDetail": "3.0L (3,018cc) & 3.2L (3,201cc), Trockensumpf, Reihen-sechs-Zyl.",
+      "topSpeed": "168+ mph / 270.37+ km/h",
+      "yearRange": "1992 - 1999",
+      "power": "325+ BHP / 241+ ft.lbs, 450 BHP / 328+ ft.lbs",
+      "chassis": "BMW Motorsport E36 M3 Grp.A, GTR, STC"
     },
     {
       "title": "BMW Motorsport",
-      "model": "P54B32",
-      "engine": "BMW P54B32 3.2 Liter Reihensechszylinder (3246cc)",
-      "topSpeed": "177",
-      "yearRange": "2001-2006",
-      "bhp": "435",
-      "chassis": "BMW E46 M3 GT/GTR/VLN & E86 Z4 VLN"
-    },
-    {
-      "title": "BMW Motorsport",
-      "model": "P60B40",
-      "engine": "BMW P60B40 Trockensumpf, 4.0-Liter V8 (3997cc)",
-      "topSpeed": "174",
-      "yearRange": "2001-2005",
-      "bhp": "450",
-      "chassis": "BMW E46 M3 GTR"
-    },
-    {
-      "title": "BMW Motorsport",
-      "model": "P65B40-44",
-      "engine": "BMW P65B44 Trockensumpf, 4.4 Liter V8 (4400cc)",
-      "topSpeed": "500+",
-      "yearRange": "2009-2011",
-      "bhp": "633",
-      "chassis": "BMW E92 M3 GT2 & BMW E89 Z4 GT3"
-    },
-    {
-      "title": "BMW Motorsport",
-      "model": "P48R20",
-      "engine": "BMW P48R20 Trockensumpf, Turbo, 1.9 Liter, 4-Zylinder (1999cc)",
-      "topSpeed": "300",
-      "yearRange": "2019-2020",
-      "bhp": "630+",
-      "chassis": "BMW M4 DTM Klasse 1 Prototyp"
-    },
-    {
-      "title": "BMW Motorsport",
-      "model": "P80",
-      "engine": "BMW P80 Trockensumpf, 2.9 Liter, V12 (2998cc)",
-      "topSpeed": "233+",
-      "yearRange": "2001-2005",
-      "bhp": "880+",
-      "chassis": "BMW Motorsport Williams F1 FW23"
+      "model": "P54",
+      "engine": "BMW P54B32",
+      "enginDetail": "3.2L, Reihen-6-Zyl. (3,246cc), ALMS Stroked 3.4L (3,400cc)",
+      "topSpeed": "178+ mph / 286.46+ km/h",
+      "yearRange": "2001 - 2006",
+      "power": "425+ BHP / 315+ ft.lbs.TQ, 460+ BHP / 340+ ft.lbs.TQ",
+      "chassis": "BMW Motorsport E46 M3 GT, GTR, VLN, E86 Z4 VLN"
     },
     {
       "title": "BMW Motorsport",
       "model": "S70/3",
-      "engine": "BMW S70/3-GTR Trockensumpf, 6.0 Liter, V12 (6064cc)",
-      "topSpeed": "230",
-      "yearRange": "1996-1997",
-      "bhp": "615",
-      "chassis": "BMW Powered McLaren F1 GTR & GTR Longtail"
+      "engine": "BMW S70/3 GTR",
+      "enginDetail": "Trockensumpf, 6.0L, V12 (6,064cc), Verdichtung 12.0:1",
+      "topSpeed": "230+ mph / 370.14+ km/h",
+      "yearRange": "1995 - 1997",
+      "power": "615+ HP / 6,750 RPM, 725+ Nm / 535 ft-lbs @ 4,500 RPM, Max 8,000 RPM",
+      "chassis": "BMW Motorsport McLaren F1 GTR, McLaren F1 GTR Longtail"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "P60",
+      "engine": "BMW P60B40",
+      "enginDetail": "Flachkurbelwelle, Trockensumpf, 4.0L, V8 (3,997cc)",
+      "topSpeed": "174+ mph / 280+ km/h",
+      "yearRange": "2001 - 2005",
+      "power": "450+ BHP / 380+ ft.lbs",
+      "chassis": "BMW Motorsport E46 M3 GTR"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "P65",
+      "engine": "BMW P65B40",
+      "enginDetail": "Trockensumpf, 4.0L, V8 (3,999cc)",
+      "topSpeed": "180+ mph / 289+ km/h",
+      "yearRange": "2008 - 2012",
+      "power": "485+ BHP / 380+ ft.lbs.TQ",
+      "chassis": "BMW Motorsport E92 M3 GT2, E89 Z4 GT3"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "P48",
+      "engine": "BMW P48R20",
+      "enginDetail": "Turbo, Trockensumpf, 2.0L, 4-Zyl. (1,999cc)",
+      "topSpeed": "87+ mph / 300+ km/h",
+      "yearRange": "2019 - 2020",
+      "power": "630+ BHP / 610+ ft. lbs. TQ.",
+      "chassis": "BMW Motorsport M4 DTM, Klasse 1, Prototyp"
+    },
+    {
+      "title": "BMW Motorsport",
+      "model": "P80",
+      "engine": "BMW P80",
+      "enginDetail": "3.0L, 90° V-Winkel, V10 (2,998cc), Gewicht 231 lbs",
+      "topSpeed": "248+ mph / 399+ km/h",
+      "yearRange": "2001 - 2005",
+      "power": "880+ BHP / 19,000 RPM, 356+ ft.lbs. TQ (Restricted)",
+      "chassis": "BMW Motorsport Williams F1 FW24"
     }
   ],
   "soundListModel": {
@@ -133,7 +146,7 @@
   },
   "paymentModal": {
     "title": "Premium BMW Motorsound",
-    "subtitle": "Erleben Sie authentisches BMW Motorenbrüllen",
+    "subtitle": "Erleben Sie den authentischen BMW Motorenbrüllen",
     "buttonText": "Klicken zum Kaufen"
   }
 }

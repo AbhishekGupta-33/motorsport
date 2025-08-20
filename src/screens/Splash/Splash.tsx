@@ -44,6 +44,7 @@ const SplashScreen = () => {
   }, []);
 
   useEffect(() => {
+    storage.set('isFirstLoaded', '');
     setTimeout(() => {
       animate();
     }, 300);
@@ -81,7 +82,7 @@ const SplashScreen = () => {
 
 const styles = StyleSheet.create({
   title: {
-    color: theme.color.white,
+    color: theme.color.green,
     fontWeight: '400',
     textAlign: 'center',
   },

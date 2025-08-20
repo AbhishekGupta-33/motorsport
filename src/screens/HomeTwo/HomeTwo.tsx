@@ -65,9 +65,10 @@ const HomeTwo = () => {
         title: t(`${key}.title`),
         model: t(`${key}.model`),
         engine: t(`${key}.engine`),
+        enginDetail: t(`${key}.enginDetail`),
         topSpeed: t(`${key}.topSpeed`),
         yearRange: t(`${key}.yearRange`),
-        bhp: t(`${key}.bhp`),
+        power: t(`${key}.power`),
         chassis: t(`${key}.chassis`),
         images,
         sound: sounds[index],
@@ -76,7 +77,7 @@ const HomeTwo = () => {
   }, [t]);
 
   const {startSound, stop, isPlaying} = useGyroSound(
-    [motorsportData.find(elem => elem.id === currentID)?.sound] || '',
+    motorsportData.find(elem => elem.id === currentID)?.sound[0] || '',
   );
 
   const anim = {
@@ -138,6 +139,7 @@ const HomeTwo = () => {
     width: anim.middleImageWidth.value,
     height: anim.middleImageHeight.value,
     transform: [{scale: anim.middleImageScale.value}],
+    tintColor: '#000'
   }));
 
   const topImageAnimStyle = useAnimatedStyle(() => ({

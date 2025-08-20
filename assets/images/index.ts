@@ -22,4 +22,6 @@ export const APP_IMAGE = {
   BMW_10_1: require('./car10/BMW_10_1.jpg'),
   BMW_10_2: require('./car10/BMW_10_2.jpg'),
   save: require('./save.png'),
+  shareIcon: require('./share-icon.png'),
+  startEngine: require('./startEngine.png'),
 };

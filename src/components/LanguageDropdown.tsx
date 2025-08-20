@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: theme.color.white,
     borderWidth: 1,
+    borderRadius: 5
   },
   buttonText: {
     color: theme.color.white,

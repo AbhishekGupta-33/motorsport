@@ -4,20 +4,19 @@ import {
   View,
   Pressable,
   StyleSheet,
-  Dimensions,
-  Alert,
   useWindowDimensions,
-  Text,
   TouchableOpacity,
 } from 'react-native';
-import Tooltip from './ToolTip';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 import {theme} from '../constants/theme';
 import {storage} from '../utils/storage';
 import {ControllerButtonId, NavgationNames} from '../constants/NavgationNames';
-import { isTablet } from 'react-native-device-info';
+import {isTablet} from 'react-native-device-info';
 import AppText from './AppText';
+import {APP_IMAGE} from '../../assets/images';
+import Share from 'react-native-share';
+import ArrowAnimated from './AnimatedArrow';
 
 const Controller = ({
   onButtonPress = (buttonId: string) => {},
@@ -27,25 +26,29 @@ const Controller = ({
   buttonStyle = {},
   disabled = false,
 }) => {
-  const {height: screenHeight} = useWindowDimensions();
+  const {height: screenHeight, width: screenWidth} = useWindowDimensions();
   const [showToolTip, setShowToolTip] = useState(true);
+  const [currentStep, setCurrentStep] = useState(0); // Track arrow tutorial step
   const {t} = useTranslation();
   const navigation = useNavigation();
 
   // Button positions as percentages of the image dimensions
-  // These are approximate positions based on the image you provided
   const buttonPositions = [
     {
       id: ControllerButtonId.LeftPaddle,
       left: '24%',
       top: '27%',
+      arrowLeft: isTablet() ? '25%' : '21%',
+      arrowTop:  isTablet() ? '20%' : '13%',
       width: screenHeight * 0.2,
       height: screenHeight * 0.2,
     },
     {
       id: ControllerButtonId.LeftWhite,
       left: isTablet() ? '34%' : '33.5%',
-      top:  '49%',
+      top: '49%',
+      arrowLeft: isTablet() ? '33%' : '28%',
+      arrowTop:  isTablet() ? '39%' : '31%',
       width: screenHeight * 0.1,
       height: screenHeight * 0.1,
     },
@@ -53,6 +56,8 @@ const Controller = ({
       id: ControllerButtonId.LeftBlue,
       left: isTablet() ? '34%' : '33%',
       top: isTablet() ? '60%' : '61%',
+      arrowLeft: isTablet() ? '33%' : '28%',
+      arrowTop:  isTablet() ? '52%' : '44%',
       width: screenHeight * 0.1,
       height: screenHeight * 0.1,
     },
@@ -60,13 +65,17 @@ const Controller = ({
       id: ControllerButtonId.LeftYellow,
       left: isTablet() ? '34%' : '33%',
       top: isTablet() ? '71.5%' : '73%',
+      arrowLeft: isTablet() ? '32%' : '28%',
+      arrowTop: isTablet() ? '60%' : '54%',
       width: screenHeight * 0.1,
       height: screenHeight * 0.1,
     },
     {
       id: ControllerButtonId.LeftBlack,
       left: isTablet() ? '33.5%' : '33%',
-      top: isTablet() ? '83%' :'85%',
+      top: isTablet() ? '83%' : '85%',
+      arrowLeft: isTablet() ? '32%' : '28%',
+      arrowTop: isTablet() ? '72%' : '67%',
       width: screenHeight * 0.1,
       height: screenHeight * 0.1,
     },
@@ -74,20 +83,26 @@ const Controller = ({
       id: ControllerButtonId.RightWhite,
       left: '61%',
       top: isTablet() ? '49%' : '50%',
+      arrowLeft: isTablet() ? '58%' : '56%',
+      arrowTop: isTablet() ? '42%' :'31%',
       width: screenHeight * 0.1,
       height: screenHeight * 0.1,
     },
     {
       id: ControllerButtonId.RightYellow,
       left: '61%',
-      top: isTablet() ? '61%' :'62%',
+      top: isTablet() ? '61%' : '62%',
+      arrowLeft: isTablet() ? '58%' :  '56%',
+      arrowTop: isTablet() ? '51%' : '44%',
       width: screenHeight * 0.1,
       height: screenHeight * 0.1,
     },
     {
       id: ControllerButtonId.RightRed,
       left: '61.5%',
-      top: isTablet() ? '72%' :'73.5%',
+      top: isTablet() ? '72%' : '73.5%',
+      arrowLeft: isTablet() ? '58%' : '56%',
+      arrowTop: isTablet() ? '61%' : '54%',
       width: screenHeight * 0.1,
       height: screenHeight * 0.1,
     },
@@ -95,6 +110,8 @@ const Controller = ({
       id: ControllerButtonId.RightGreen,
       left: '61.5%',
       top: isTablet() ? '83%' : '85%',
+      arrowLeft: isTablet() ? '58%' :'56%',
+      arrowTop: isTablet() ? '70%': '67%',
       width: screenHeight * 0.1,
       height: screenHeight * 0.1,
     },
@@ -102,6 +119,8 @@ const Controller = ({
       id: ControllerButtonId.RightPaddle,
       left: '68%',
       top: '27%',
+      arrowLeft: isTablet() ? '66%' : '65%',
+      arrowTop:isTablet() ? '20%' :'13%',
       width: screenHeight * 0.2,
       height: screenHeight * 0.2,
     },
@@ -111,13 +130,26 @@ const Controller = ({
     navigation.navigate(NavgationNames.home);
   };
 
+  const handleShare = async () => {
+    const options = {
+      title: 'Share via',
+      message: 'Check out this awesome React Native project!',
+      url: 'https://reactnative.dev',
+    };
+
+    try {
+      await Share.open(options);
+    } catch (error: any) {
+      // Alert.alert(error?.message);
+    }
+  };
+
   const getLanguage = () => {
     const LANGUAGES = {
       en: t('languageList.english'),
       de: t('languageList.german'),
       es: t('languageList.spanish'),
     };
-
     const lang = storage.getString('lang') || 'en';
     return LANGUAGES[lang] || LANGUAGES.en;
   };
@@ -125,10 +157,9 @@ const Controller = ({
   useEffect(() => {
     let firstLoaded = storage.getString('isFirstLoaded');
     if (firstLoaded) {
-      setShowToolTip(false);
+      setCurrentStep(-1); // hide tutorial if already loaded
     } else {
-      setShowToolTip(true);
-      storage.set('isFirstLoaded', 'true');
+      setCurrentStep(0);
     }
   }, []);
 
@@ -139,9 +170,20 @@ const Controller = ({
     width: number;
     height: number;
   }) => {
-    storage.set('isFirstLoaded', 'true');
-    setShowToolTip(false);
-    onButtonPress(button.id);
+    // ✅ Only allow clicking the current step button
+    if (currentStep !== -1 && button.id === buttonPositions[currentStep].id) {
+      if (currentStep < buttonPositions.length - 1) {
+        setCurrentStep(prev => prev + 1);
+      } else {
+        setCurrentStep(-1);
+        storage.set('isFirstLoaded', 'true');
+      }
+    }
+
+    // Normal flow should happen only if tutorial is done
+    if (currentStep === -1) {
+      onButtonPress(button.id);
+    }
   };
 
   const handleOnLongPress = (button: {
@@ -156,43 +198,55 @@ const Controller = ({
     onButtonLongPress(button.id);
   };
 
+  // Arrow guide renderer
+  const renderArrow = () => {
+    if (currentStep === -1) return null; // finished tutorial
+    const button = buttonPositions[currentStep];
+
+    return (
+      <ArrowAnimated
+        style={{
+          position: 'absolute',
+          left: button.arrowLeft,
+          top: button.arrowTop,
+          zIndex: 999,
+        }}
+      />
+    );
+  };
+
   return (
     <View style={[styles.container, containerStyle]}>
-      <TouchableOpacity style={styles.topRightView} onPress={handleLangugae}>
-        <AppText size={'xs'} style={styles.language}>{getLanguage()} ▼</AppText>
+      <TouchableOpacity style={styles.topleftView} onPress={handleShare}>
+        <FastImage source={APP_IMAGE.shareIcon} style={styles.shareIconStyle} />
       </TouchableOpacity>
-      
-        <View style={styles.centerView}>
-          <AppText size={'md'} style={styles.title}>{t('homeTwoTitle').toUpperCase()}</AppText>
-          <AppText size={'xs'} style={styles.description}>{t('homeTwoDes')}</AppText>
-        </View> 
 
-      {showToolTip && <Tooltip viewStyle={styles.tollTipStyle} />}
+      <TouchableOpacity style={styles.topRightView} onPress={handleLangugae}>
+        <AppText size={ isTablet() ? 'md' : 'xs'} style={styles.language}>
+          {getLanguage()} ▼
+        </AppText>
+      </TouchableOpacity>
 
-      {/* Overlay container for buttons */}
+      <View style={styles.centerView}>
+        <AppText size={'md'} style={styles.title}>
+          {t('homeTwoTitle').toUpperCase()}
+        </AppText>
+        <AppText size={'xs'} style={styles.description}>
+          {t('homeTwoDes')}
+        </AppText>
+      </View>
+
+      {/* Arrow tutorial */}
+      {renderArrow()}
+
+      {/* Overlay buttons */}
       <View style={styles.buttonOverlay}>
         {buttonPositions.map(button => (
           <Pressable
             key={button.id}
-            style={[
-              styles.button,
-              {
-                left: button.left,
-                top: button.top,
-                width: button.width,
-                height: button.height,
-              },
-              buttonStyle,
-              disabled && styles.disabledButton,
-            ]}
             onPress={() => handleOnPress(button)}
             onLongPress={() => handleOnLongPress(button)}
             onPressOut={onPressOut}
-            android_ripple={{
-              color: 'rgba(255, 255, 255, 0.3)',
-              borderless: true,
-              radius: 20,
-            }}
             style={({pressed}) => [
               styles.button,
               {
@@ -216,48 +270,51 @@ const Controller = ({
 
 const styles = StyleSheet.create({
   container: {
-    // alignItems: 'flex-end',
-    // justifyContent: 'center',
     height: '100%',
     width: '100%',
-    // position: 'absolute',
-    // zIndex:10,
-    aspectRatio: 2.5, // Adjust based on your image aspect ratio
+    aspectRatio: 2.5,
   },
   topRightView: {
     borderWidth: 1,
     borderColor: theme.color.borderLightGray,
+    backgroundColor: theme.color.white + '60',
     padding: theme.spacing.sm,
     alignSelf: 'flex-end',
+    borderRadius: 5,
     right: isTablet() ? '20%' : '12%',
     top: isTablet() ? '8%' : '5%',
   },
+  topleftView: {
+    backgroundColor: theme.color.white + '50',
+    padding: theme.spacing.sm,
+    borderRadius: 5,
+    alignSelf: 'flex-start',
+    position: 'absolute',
+    left: isTablet() ? '20%' : '8%',
+    top: isTablet() ? '8%' : '5%',
+  },
   title: {
-    color:theme.color.white,
+    color: theme.color.green,
     fontWeight: 'bold',
     textAlign: 'center',
   },
   description: {
     fontWeight: '400',
-    color: theme.color.borderLightGray,
+    color: theme.color.green,
     textAlign: 'center',
   },
   language: {
-    fontWeight: '400',
-    color: theme.color.white,
+    fontWeight: 'bold',
+    color: theme.color.red,
     textAlign: 'center',
   },
-  tollTipStyle: {
+  toolTipStyle: {
     alignSelf: 'flex-end',
     right: isTablet() ? '19%' : '10%',
     top: isTablet() ? '15%' : '2%',
   },
   centerView: {
     top: isTablet() ? '25%' : '16%',
-  },
-  steeringWheelImage: {
-    width: '100%',
-    height: '100%',
   },
   buttonOverlay: {
     position: 'absolute',
@@ -268,13 +325,10 @@ const styles = StyleSheet.create({
   },
   button: {
     position: 'absolute',
-    backgroundColor: 'rgba(255, 255, 255, 0)', // Semi-transparent for development
-    borderRadius: '100%',
-    borderWidth: 2,
-    borderColor: 'rgba(255, 255, 255, 0)',
+    backgroundColor: 'rgba(255, 255, 255, 0)', // Transparent
+    borderRadius: 9999, // Circle
     justifyContent: 'center',
     alignItems: 'center',
-    // Remove backgroundColor in production for invisible buttons
   },
   buttonInner: {
     width: '60%',
@@ -289,6 +343,10 @@ const styles = StyleSheet.create({
   disabledButton: {
     opacity: 0.5,
     backgroundColor: 'rgba(128, 128, 128, 0.2)',
+  },
+  shareIconStyle: {
+    height: 30,
+    width: 30,
   },
 });
 
