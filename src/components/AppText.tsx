@@ -17,6 +17,7 @@ const baseFontSizes: Record<string, number> = {
   md: 16,
   lg: 20,
   xl: 24,
+  title: 30,
   xxl: 32,
   xxxl: 42
 };

@@ -39,10 +39,10 @@
   "cancel": "Cancel",
   "moterListText": [
     {
-      "title": "BMW Mototsport",
+      "title": "BMW Motorsport",
       "model": "P66",
       "engine": "BMW P66B40",
-      "enginDetail": "4.0L, Dry Sump, V8 (4,000) Compression 13.0:1",
+      "enginDetail": "4.0L, Dry Sump, V8 (4,000cc) Compression 13.0:1",
       "topSpeed": "171+ mph / 275+ km/h",
       "yearRange": "2012 - 2018",
       "power": "480+ HP./ 369+ft. lbs. TQ.",

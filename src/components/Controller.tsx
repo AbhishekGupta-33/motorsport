@@ -169,19 +169,23 @@ const Controller = ({
     top: string;
     width: number;
     height: number;
-  }) => {
+  }, index: number) => {
     // ✅ Only allow clicking the current step button
-    if (currentStep !== -1 && button.id === buttonPositions[currentStep].id) {
-      if (currentStep < buttonPositions.length - 1) {
-        setCurrentStep(prev => prev + 1);
-      } else {
-        setCurrentStep(-1);
-        storage.set('isFirstLoaded', 'true');
+   // Check if the tutorial is active (currentStep is not -1)
+    if (currentStep !== -1) {
+      // Only allow clicking the current step button
+      if (button.id === buttonPositions[currentStep].id) {
+        // If it's the last button in the tutorial
+        onButtonPress(button.id);
+        if (currentStep === buttonPositions.length - 1) {
+          setCurrentStep(-1); // Hide the tutorial
+          storage.set('isFirstLoaded', 'true');
+        } else {
+          setCurrentStep(prev => prev + 1); // Move to the next step
+        }
       }
-    }
-
-    // Normal flow should happen only if tutorial is done
-    if (currentStep === -1) {
+    } else {
+      // Normal flow should happen only if the tutorial is done
       onButtonPress(button.id);
     }
   };
@@ -193,9 +197,11 @@ const Controller = ({
     width: number;
     height: number;
   }) => {
+    if(currentStep === -1){
     storage.set('isFirstLoaded', 'true');
     setShowToolTip(false);
     onButtonLongPress(button.id);
+    }
   };
 
   // Arrow guide renderer
@@ -218,7 +224,7 @@ const Controller = ({
   return (
     <View style={[styles.container, containerStyle]}>
       <TouchableOpacity style={styles.topleftView} onPress={handleShare}>
-        <FastImage source={APP_IMAGE.shareIcon} style={styles.shareIconStyle} />
+        <FastImage source={APP_IMAGE.shareIcon} style={styles.shareIconStyle}  tintColor={theme.color.yellow}/>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.topRightView} onPress={handleLangugae}>
@@ -241,10 +247,10 @@ const Controller = ({
 
       {/* Overlay buttons */}
       <View style={styles.buttonOverlay}>
-        {buttonPositions.map(button => (
+        {buttonPositions.map((button, index) => (
           <Pressable
             key={button.id}
-            onPress={() => handleOnPress(button)}
+            onPress={() => handleOnPress(button, index)}
             onLongPress={() => handleOnLongPress(button)}
             onPressOut={onPressOut}
             style={({pressed}) => [
@@ -285,9 +291,9 @@ const styles = StyleSheet.create({
     top: isTablet() ? '8%' : '5%',
   },
   topleftView: {
-    backgroundColor: theme.color.white + '50',
+    // backgroundColor: theme.color.white + '50',
     padding: theme.spacing.sm,
-    borderRadius: 5,
+    // borderRadius: 5,
     alignSelf: 'flex-start',
     position: 'absolute',
     left: isTablet() ? '20%' : '8%',
@@ -347,6 +353,7 @@ const styles = StyleSheet.create({
   shareIconStyle: {
     height: 30,
     width: 30,
+    tintColor: theme.color.yellow,
   },
 });
 

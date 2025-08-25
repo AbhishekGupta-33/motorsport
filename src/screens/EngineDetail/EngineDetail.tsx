@@ -22,6 +22,7 @@ import AppText from '../../components/AppText';
 import SoundListModel from '../../components/SoundListModel';
 import {useGyroSound} from '../../hooks/useGyroSound';
 import Share from 'react-native-share';
+import { SafeAreaFrameContext, SafeAreaView } from 'react-native-safe-area-context';
 
 const {height, width} = Dimensions.get('window');
 
@@ -46,13 +47,13 @@ interface ViewableItemsChanged {
 }
 
 const renderCarouselItem: ListRenderItem<MotorsportItem> = ({item}) => (
-  <View style={styles.carouselItem}>
+  // <View style={styles.carouselItem}>
     <FastImage
       source={item}
       style={styles.carImage}
-      resizeMode={FastImage.resizeMode.stretch}
+      resizeMode={FastImage.resizeMode.contain}
     />
-  </View>
+  // </View>
 );
 
 const EngineDetail: React.FC<any> = props => {
@@ -154,13 +155,14 @@ const EngineDetail: React.FC<any> = props => {
         resizeMode={FastImage.resizeMode.cover}
         tintColor={theme.color.white}
       />
-
+      <SafeAreaView style={{flex:1}}>
       <View style={styles.topContainer}>
         <View style={styles.topView}>
           <TouchableOpacity style={styles.topleftView} onPress={handleShare}>
             <FastImage
               source={APP_IMAGE.shareIcon}
               style={styles.shareIconStyle}
+              tintColor={theme.color.yellow}
             />
           </TouchableOpacity>
           <TouchableOpacity style={styles.closeButton} onPress={onClosePress}>
@@ -204,12 +206,14 @@ const EngineDetail: React.FC<any> = props => {
 
           {/* Center Panel - Title and Carousel */}
           <View style={styles.centerPanel}>
-            <AppText size={'xxl'} style={styles.mainTitle}>
+            <View style={styles.titleContainer}>
+            <AppText size={'title'} style={styles.mainTitle}>
               {motorsportData.title}
             </AppText>
-            <AppText size={'xxl'} style={styles.modelText}>
+            <AppText size={'title'} style={styles.modelText}>
               {motorsportData.model}
             </AppText>
+            </View>
 
             {/* Car Carousel */}
             {/* <View style={styles.carouselContainer}> */}
@@ -281,6 +285,8 @@ const EngineDetail: React.FC<any> = props => {
           onPurchase={onPurchase}
         />
       </View>
+      </SafeAreaView>
+
     </View>
   );
 };
@@ -299,7 +305,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     zIndex: 10,
     padding: 10,
-    paddingHorizontal: '5%' 
+    paddingRight: '5%' 
   },
   topleftView: {
     backgroundColor: theme.color.white + '50',
@@ -310,6 +316,7 @@ const styles = StyleSheet.create({
   shareIconStyle: {
     height: 30,
     width: 30,
+    tintColor: theme.color.yellow,
   },
   viewCOntainerStyle: {
     flexDirection: 'row',
@@ -330,10 +337,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   leftPanel: {
-    width: '25%',
+    width: '30%',
     borderWidth: 1,
     borderColor: theme.color.black,
     justifyContent: 'space-evenly',
+  },
+  titleContainer:{
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: -theme.spacing.md,
   },
   listItemView: {
     justifyContent: 'center',
@@ -390,16 +402,16 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   carousel: {
-    width: isTablet() ? width * 0.42 : width * 0.4,
-    height: isTablet() ? height * 0.6 : height * 0.4,
+    width: isTablet() ? width * 0.42 : width * 0.32,
+    height: isTablet() ? height * 0.6 : height * 0.53,
   },
   carouselItem: {
     justifyContent: 'center',
     alignItems: 'center',
   },
   carImage: {
-    width: isTablet() ? width * 0.42 : width * 0.4,
-    height: isTablet() ? height * 0.6 : height * 0.4,
+    width: isTablet() ? width * 0.42 : width * 0.32,
+    height: isTablet() ? height * 0.6 : height * 0.53,
   },
   dotsContainer: {
     flexDirection: 'row',
@@ -413,7 +425,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
   },
   rightPanel: {
-    width: '25%',
+    width: '30%',
     borderWidth: 1,
     borderColor: theme.color.black,
     justifyContent: 'space-evenly',
