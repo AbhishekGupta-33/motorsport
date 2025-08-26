@@ -40,7 +40,6 @@ const imageGroups = [
 const sounds = [
   ['bmw_1.m4a', 'bmw_2.m4a'],
   ['bmw_2.m4a'],
-  ['bmw_2.m4a'],
   ['bmw_3.m4a'],
   ['bmw_4.m4a'],
   ['bmw_5.m4a'],

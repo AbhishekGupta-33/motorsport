@@ -42,18 +42,18 @@
       "title": "BMW Motorsport",
       "model": "P66",
       "engine": "BMW P66B40",
-      "enginDetail": "4.0L, Trockensumpf, V8 (4,000) Verdichtung 13.0:1",
-      "topSpeed": "171+ mph / 275+ km/h",
+      "enginDetail": "4.0L, Trockensumpf, V8 (4.000) Kompression 13.0:1",
+      "topSpeed": "275+ km/h / 171+ mph",
       "yearRange": "2012 - 2018",
-      "power": "480+ PS./ 369+ft. lbs. TQ.",
-      "chassis": "BMW Motorsport M3 & M4 DTM Carbon Fiber Monocoque"
+      "power": "480+ HP / 369+ ft. lbs. TQ.",
+      "chassis": "BMW Motorsport M3 & M4 DTM Carbonfaser-Monocoque"
     },
     {
       "title": "BMW Motorsport",
       "model": "P75",
       "engine": "BMW P75",
-      "enginDetail": "5.9L, Trockensumpf, V12 (5,990cc)",
-      "topSpeed": "217+ mph / 350+ km/h",
+      "enginDetail": "5.9L, Trockensumpf, V12 (5.990cc)",
+      "topSpeed": "350+ km/h / 217+ mph",
       "yearRange": "1999 - 2000",
       "power": "580+ BHP",
       "chassis": "BMW Motorsport V12 LMR"
@@ -62,58 +62,58 @@
       "title": "BMW Motorsport",
       "model": "S42",
       "engine": "BMW S42B20",
-      "enginDetail": "2.0L, Reihen-4-Zyl. (1,998cc), Verdichtung 13.0:1",
-      "topSpeed": "140+ mph / 225.30+ km/h",
+      "enginDetail": "2.0L, 4-Zylinder-Reihenmotor (1.998cc), Kompression 13.0:1",
+      "topSpeed": "225.30+ km/h / 140+ mph",
       "yearRange": "1994 - 1999",
-      "power": "299+ PS / 191.77+ ft.lbs. TQ",
+      "power": "299+ BHP / 191.77+ ft.lbs. TQ",
       "chassis": "BMW Motorsport E36 320i STC"
     },
     {
       "title": "BMW Motorsport",
       "model": "S50",
       "engine": "BMW S50B32",
-      "enginDetail": "3.0L (3,018cc) & 3.2L (3,201cc), Trockensumpf, Reihen-sechs-Zyl.",
-      "topSpeed": "168+ mph / 270.37+ km/h",
+      "enginDetail": "3.0L (3.018cc) & 3.2L (3.201cc), Trockensumpf, Sechszylinder-Reihenmotor",
+      "topSpeed": "270.37+ km/h / 168+ mph",
       "yearRange": "1992 - 1999",
-      "power": "325+ BHP / 241+ ft.lbs, 450 BHP / 328+ ft.lbs",
-      "chassis": "BMW Motorsport E36 M3 Grp.A, GTR, STC"
+      "power": "325+ BHP / 241+ ft.lbs, 450 BHP / 328+ ft.lbs. TQ.",
+      "chassis": "BMW Motorsport E36 M3 Grp.A, GTR, GT, E36/4 STC"
     },
     {
       "title": "BMW Motorsport",
       "model": "P54",
       "engine": "BMW P54B32",
-      "enginDetail": "3.2L, Reihen-6-Zyl. (3,246cc), ALMS Stroked 3.4L (3,400cc)",
-      "topSpeed": "178+ mph / 286.46+ km/h",
+      "enginDetail": "3.2L, 6-Zylinder-Reihenmotor (3.246cc), ALMS Stroked 3.4L (3.400cc)",
+      "topSpeed": "286.46+ km/h / 178+ mph",
       "yearRange": "2001 - 2006",
-      "power": "425+ BHP / 315+ ft.lbs.TQ, 460+ BHP / 340+ ft.lbs.TQ",
+      "power": "425+ BHP / 315+ ft.lbs.TQ, 450 BHP / 340+ ft.lbs.TQ.",
       "chassis": "BMW Motorsport E46 M3 GT, GTR, VLN, E86 Z4 VLN"
     },
     {
       "title": "BMW Motorsport",
-      "model": "S70/3",
+      "model": "S70",
       "engine": "BMW S70/3 GTR",
-      "enginDetail": "Trockensumpf, 6.0L, V12 (6,064cc), Verdichtung 12.0:1",
-      "topSpeed": "230+ mph / 370.14+ km/h",
+      "enginDetail": "Trockensumpf, 6.0L, V12 (6.064cc), Kompression 12.0:1",
+      "topSpeed": "370.14+ km/h / 230+ mph",
       "yearRange": "1995 - 1997",
-      "power": "615+ HP / 6,750 RPM, 725+ Nm / 535 ft-lbs @ 4,500 RPM, Max 8,000 RPM",
-      "chassis": "BMW Motorsport McLaren F1 GTR, McLaren F1 GTR Longtail"
+      "power": "615+ BHP/7.500 U/min, 725+ Nm oder 535+ ft. lbs. TQ./4.500 U/min, Max. 8.000 U/min",
+      "chassis": "1996 BMW Motorsport McLaren F1 GTR, 1997 McLaren F1 GTR Longtail"
     },
     {
       "title": "BMW Motorsport",
       "model": "P60",
       "engine": "BMW P60B40",
-      "enginDetail": "Flachkurbelwelle, Trockensumpf, 4.0L, V8 (3,997cc)",
-      "topSpeed": "174+ mph / 280+ km/h",
+      "enginDetail": "Flachkurbelwelle, Trockensumpf, 4.0L, V8 (3.997cc)",
+      "topSpeed": "280+ km/h / 174+ mph",
       "yearRange": "2001 - 2005",
-      "power": "450+ BHP / 380+ ft.lbs",
-      "chassis": "BMW Motorsport E46 M3 GTR"
+      "power": "450+ BHP / 380+ ft.lbs TQ.",
+      "chassis": "BMW Motorsport McLaren F1 GTR, McLaren F1 GTR Longtail"
     },
     {
       "title": "BMW Motorsport",
       "model": "P65",
       "engine": "BMW P65B40",
-      "enginDetail": "Trockensumpf, 4.0L, V8 (3,999cc)",
-      "topSpeed": "180+ mph / 289+ km/h",
+      "enginDetail": "Flachkurbelwelle, Trockensumpf, 4.0L, V8 (3.997cc)",
+      "topSpeed": "289+ km/h / 180+ mph",
       "yearRange": "2008 - 2012",
       "power": "485+ BHP / 380+ ft.lbs.TQ",
       "chassis": "BMW Motorsport E92 M3 GT2, E89 Z4 GT3"
@@ -122,8 +122,8 @@
       "title": "BMW Motorsport",
       "model": "P48",
       "engine": "BMW P48R20",
-      "enginDetail": "Turbo, Trockensumpf, 2.0L, 4-Zyl. (1,999cc)",
-      "topSpeed": "87+ mph / 300+ km/h",
+      "enginDetail": "Turbo, Trockensumpf, 2.0L, 4-Zylinder (1.999cc)",
+      "topSpeed": "300+ km/h / 187+ mph",
       "yearRange": "2019 - 2020",
       "power": "630+ BHP / 610+ ft. lbs. TQ.",
       "chassis": "BMW Motorsport M4 DTM, Klasse 1, Prototyp"
@@ -132,11 +132,11 @@
       "title": "BMW Motorsport",
       "model": "P80",
       "engine": "BMW P80",
-      "enginDetail": "3.0L, 90° V-Winkel, V10 (2,998cc), Gewicht 231 lbs",
-      "topSpeed": "248+ mph / 399+ km/h",
+      "enginDetail": "90 Grad, Trockensumpf, 3.0L, V10 (2.998cc) Gewicht: 105 kg / 231 lbs.",
+      "topSpeed": "399+ km/h / 248+ mph",
       "yearRange": "2001 - 2005",
-      "power": "880+ BHP / 19,000 RPM, 356+ ft.lbs. TQ (Restricted)",
-      "chassis": "BMW Motorsport Williams F1 FW24"
+      "power": "880+ BHP / 19.000 U/min, 356+ ft.lbs. TQ (gedrosselt)",
+      "chassis": "BMW Motorsport Williams F1 FW23+"
     }
   ],
   "soundListModel": {

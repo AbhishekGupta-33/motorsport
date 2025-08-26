@@ -22,7 +22,7 @@ import AppText from '../../components/AppText';
 import SoundListModel from '../../components/SoundListModel';
 import {useGyroSound} from '../../hooks/useGyroSound';
 import Share from 'react-native-share';
-import { SafeAreaFrameContext, SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const {height, width} = Dimensions.get('window');
 
@@ -86,8 +86,8 @@ const EngineDetail: React.FC<any> = props => {
             index === currentIndex
               ? theme.color.red
               : index < currentIndex
-              ? theme.color.selectedDotColor
-              : theme.color.black,
+              ? theme.color.blue
+              : theme.color.borderLightGray,
         },
       ]}
       onPress={() =>
@@ -155,7 +155,7 @@ const EngineDetail: React.FC<any> = props => {
         resizeMode={FastImage.resizeMode.cover}
         tintColor={theme.color.white}
       />
-      <SafeAreaView style={{flex:1}}>
+      <SafeAreaView style={{flex:1, backgroundColor: theme.color.white}}>
       <View style={styles.topContainer}>
         <View style={styles.topView}>
           <TouchableOpacity style={styles.topleftView} onPress={handleShare}>
@@ -402,16 +402,18 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   carousel: {
-    width: isTablet() ? width * 0.42 : width * 0.32,
+    width: isTablet() ? width * 0.38 : width * 0.32,
     height: isTablet() ? height * 0.6 : height * 0.53,
+    // backgroundColor:'red'
   },
   carouselItem: {
     justifyContent: 'center',
     alignItems: 'center',
   },
   carImage: {
-    width: isTablet() ? width * 0.42 : width * 0.32,
+    width: isTablet() ? width * 0.38 : width * 0.32,
     height: isTablet() ? height * 0.6 : height * 0.53,
+    // backgroundColor:'pink'
   },
   dotsContainer: {
     flexDirection: 'row',
@@ -441,8 +443,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   playButtonStyle: {
-    width: 50,
-    height: 50,
+    width: isTablet() ? 100 : 50,
+    height: isTablet() ? 100 : 50,
   },
 });
 

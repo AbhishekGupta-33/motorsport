@@ -64,7 +64,7 @@ const SplashScreen = () => {
           source={APP_IMAGE.RectangleBlur}
           imageStyle={styles.blurImage}
           style={styles.centeredContent}>
-          <AppText size={'xs'} style={styles.title}>
+          <AppText size={'md'} style={styles.title}>
             {t('splash_title').toUpperCase()}
           </AppText>
         </ImageBackgroundImage>
@@ -83,7 +83,7 @@ const SplashScreen = () => {
 const styles = StyleSheet.create({
   title: {
     color: theme.color.green,
-    fontWeight: '400',
+    fontWeight: 'bold',
     textAlign: 'center',
   },
   mainView: {
