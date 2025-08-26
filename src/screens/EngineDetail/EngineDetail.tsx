@@ -131,9 +131,9 @@ const EngineDetail: React.FC<any> = props => {
   };
   const handleShare = async () => {
     const options = {
-      title: 'Share via',
-      message: 'Check out this awesome React Native project!',
-      url: 'https://reactnative.dev',
+      title: t('share.title'),
+      message: t('share.message'),
+      // url: 'https://www.bmw-m.com/en/index.html',
     };
 
     try {

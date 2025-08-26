@@ -13,8 +13,8 @@
   "homeTwoDes": "Each of the 10 buttons lets you explore \nan engine.Tap to see details, or long press \nto hear the engine sound.",
   "toolTipTitle": "Tap the button",
   "close": "Close",
-  "shareTitle": "Save Ringtune File",
-  "pathSubDes": "Path for your Tune:",
+  "shareTitle": "Save Ringtone File",
+  "pathSubDes": "Path for your Ringtone:",
   "topSpeedTitle": "TOP SPEED",
   "enginRace": "RACE ENGINE",
   "SpeedUnit": "MPH",
@@ -22,7 +22,7 @@
   "chassisTitle": "CHASSIS",
   "bhp": "BHP",
   "power": "POWER",
-  "AndroidRingTone": "MAKE THIS MY RINGTUNE",
+  "AndroidRingTone": "MAKE THIS MY RINGTONE",
   "startEngine": "START\nENGINE",
   "IosSaveFile": "Save the Sound",
   "ringtone": {
@@ -148,5 +148,9 @@
     "title": "Premium BMW Engine Sound",
     "subtitle": "Experience authentic BMW engine roar",
     "buttonText": "Click to Buy"
+  },
+  "share": {
+    "title": "Share via",
+    "message": "Check out the MotorSport App for BMW fans!"
   }
 }

@@ -13,8 +13,8 @@
   "homeTwoDes": "Cada uno de los 10 botones le permite explorar\nun motor. Toque para ver detalles, o mantenga\npresionado para escuchar el sonido del motor.",
   "toolTipTitle": "Tocar el botón",
   "close": "Cerrar",
-  "shareTitle": "Guardar archivo de tono",
-  "pathSubDes": "Ruta para su tono:",
+  "shareTitle": "Guardar Archivo de Tono",
+  "pathSubDes": "Ruta para tu Tono:",
   "topSpeedTitle": "VELOCIDAD MÁXIMA",
   "enginRace": "MOTOR DE CARRERAS",
   "SpeedUnit": "KM/H",
@@ -22,7 +22,7 @@
   "chassisTitle": "CHASIS",
   "bhp": "BHP",
   "power": "POTENCIA",
-  "AndroidRingTone": "ESTABLECER COMO MI TONO",
+  "AndroidRingTone": "ESTABLECER COMO MI TONO DE LLAMADA",
   "startEngine": "ARRANCAR\nMOTOR",
   "IosSaveFile": "Guardar el sonido",
   "ringtone": {
@@ -148,5 +148,9 @@
     "title": "Sonido de motor BMW Premium",
     "subtitle": "Experimente el auténtico rugido del motor BMW",
     "buttonText": "Haga clic para comprar"
+  },
+  "share": {
+    "title": "Compartir vía",
+    "message": "¡Mira la aplicación MotorSport para fanáticos de BMW!"
   }
 }

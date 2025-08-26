@@ -148,5 +148,9 @@
     "title": "Premium BMW Motorsound",
     "subtitle": "Erleben Sie den authentischen BMW Motorenbrüllen",
     "buttonText": "Klicken zum Kaufen"
+  },
+  "share": {
+    "title": "Teilen über",
+    "message": "Überprüfen Sie die MotorSport-App für BMW-Fans!"
   }
 }
